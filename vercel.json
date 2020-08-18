@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/service-worker.js",
+      "dest": "/public/service-worker.js",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable",
+        "Service-Worker-Allowed": "/"
+      }
+    },
+    {
+      "src": "/workbox-service-worker.js",
+      "dest": "/public/workbox-service-worker.js",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable",
+        "Service-Worker-Allowed": "/"
+      }
+    },
+    {
+      "src": "/storybook",
+      "status": 301,
+      "headers": {
+        "Location": "/storybook/index.html"
+      }
+    }
+  ]
+}

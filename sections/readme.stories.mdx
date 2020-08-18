@@ -1,0 +1,418 @@
+
+import { Meta } from '@storybook/addon-docs/blocks';
+import Code from './assets/code-brackets.svg';
+import Colors from './assets/colors.svg';
+import Comments from './assets/comments.svg';
+import Direction from './assets/direction.svg';
+import Flow from './assets/flow.svg';
+import Plugin from './assets/plugin.svg';
+import Repo from './assets/repo.svg';
+import StackAlt from './assets/stackalt.svg';
+
+<Meta title="Introduction" />
+
+<style>{`
+  .subheading {
+    --mediumdark: '#999999';
+    font-weight: 900;
+    font-size: 13px;
+    color: #999;
+    letter-spacing: 6px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    margin-top: 40px;
+  }
+
+  .link-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+  }
+
+  @media (min-width: 620px) {
+    .link-list {
+      row-gap: 20px;
+      column-gap: 20px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media all and (-ms-high-contrast:none) {
+  .link-list {
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr;
+      -ms-grid-rows: 1fr 1fr;
+    }
+  }
+
+  .link-item {
+    display: block;
+    padding: 20px 30px 20px 15px;
+    border: 1px solid #00000010;
+    border-radius: 5px;
+    transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+    color: #333333;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .link-item:hover {
+    border-color: #1EA7FD50;
+    transform: translate3d(0, -3px, 0);
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+  }
+
+  .link-item:active {
+    border-color: #1EA7FD;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .link-item strong {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+  
+  .link-item img {
+    height: 40px;
+    width: 40px;
+    margin-right: 15px;
+    flex: none;
+  }
+
+  .link-item span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .tip {
+    display: inline-block;
+    border-radius: 1em;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: 700;
+    background: #E7FDD8;
+    color: #66BF3C;
+    padding: 4px 12px;
+    margin-right: 10px;
+    vertical-align: top;
+  }
+
+  .tip-wrapper {
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .tip-wrapper code {
+    font-size: 12px;
+    display: inline-block;
+  }
+
+  
+`}</style>
+
+# Welcome
+
+
+<div class="subheading">What is this project</div>
+
+This is a proof of concept front-end put together to showcase a fully-modernised
+developer experience. It uses:
+
+- Typescript for type-safe JS
+- CSS Modules for scope-safe CSS
+- Tailwind for generic css
+- NextJS for SSR react
+- React for components
+- Jest for unit testing
+- Cypress for integration testing
+- Storybook for documentation
+- Next-Auth for authentication
+- Next-Images for image optimisation
+- Next-Offline with Expo for PWA generation and React Native support
+- i18next for multilanguage support
+- Stylelint, ESLint and Prettier for linting and code style
+- Vercel for CDN and Deploying
+
+<div class="subheading">Project TO-DO</div>
+
+- Remove example pages, components, & tests
+- Move in project components and convert to typescript
+- Write UI localisation [en]
+- Write component unit tests (jest)
+- Write storybook stories for components
+- Write storybook documentation for components
+- Get docs to display in storybook
+- Get design resources (sketches, etc) to display in storybook
+- Move in project page and convert to typescript
+- Write page localisation [en]
+- Write page integration tests (cypress)
+
+<div class="subheading">Project Layout</div>
+
+This layout allows NextJS page files to be co-located with their css and tests
+
+- Components go in the `/components/{component}/{files}` folder
+- Pages go in the `/sections/{section}/{files}` folder
+- API Endpoints go in the `/api/{endpoint}` folder
+- Routing is handled by creating a pointer file inside `/pages` or `/pages/api`
+- Global styles go in `/sections/styles.css`
+- Image assets go in `/public/images/{files}`
+- Documentation and stories are stored as `/{component|api}/{component|api}.stories.tsx`
+- Unit tests (jest & react-testing-library) are stored as `/{component|api}/{component|api}.test.tsx`
+- E2E tests (cypress) are stored as `/{section|api}/{section|api}.spec.tsx`
+
+
+<div class="subheading">Getting set-up</div>
+
+To get started, you need a local copy of our codebase.
+Open a command line, and navigate to an easy to access location,
+like `C:\projects` on Windows or `~/projects` on MacOS.
+
+Then run this command to get a local copy of the project:
+```bash
+git clone {url}
+cd ./project
+```
+
+Next, you're going to need to get set up with our developer environment.
+
+- Install [NodeJS](https://nodejs.org/en/download/)
+- Install [Yarn](https://yarnpkg.com/getting-started/install)
+- Install [VSCode](https://code.visualstudio.com/)
+- Add the recommended extensions to get VSCode set up quickly, or pick and choose the ones you want.
+
+Now that you are set up, launch our developer environment with:
+```bash
+yarn dev
+```
+You can cancel out of this at any time by mashing <kbd>ctrl+c</kbd> on Windows or <kbd>cmd+c</kbd> on MacOS
+
+<div class="tip-wrapper">
+  <span class="tip">Note</span>We'll automatically check and install dependencies when you run `yarn dev` to make your life easier.
+</div>
+
+
+<div class="subheading">Building components</div>
+
+Once you're ready to start developing components, ...
+
+<div class="link-list">
+  <a class="link-item" href="" target="_blank">
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>Using Git and Github</strong>
+      ...
+    </span>
+  </a>
+
+  <a class="link-item" href="" target="_blank">
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>Test Driven Development (TDD) with Jest</strong>
+      ...
+    </span>
+  </a>
+
+  <a class="link-item" href="" target="_blank">
+    <img src={StackAlt} alt="plugin" />
+    <span>
+      <strong>Write a Story with Storybook</strong>
+      ...
+    </span>
+  </a>
+
+  <a class="link-item" href="" target="_blank">
+    <img src={Colors} alt="colors" />
+    <span>
+      <strong>Style your component with Tailwind &amp; CSS Modules</strong>
+      ...
+    </span>
+  </a>
+</div>
+
+<div class="subheading">Building pages</div>
+
+We use NextJS to power our front-end...
+
+<div class="link-list">
+  <a class="link-item" href="" target="_blank">
+    <img src={Flow} alt="plugin" />
+    <span>
+      <strong>File system routing with NextJS</strong>
+      ...
+    </span>
+  </a>
+
+  <a class="link-item" href="" target="_blank">
+    <img src={Direction} alt="plugin" />
+    <span>
+      <strong>Handle API requests with NextJS</strong>
+      ...
+    </span>
+  </a>
+
+  <a class="link-item" href="" target="_blank">
+    <img src={Comments} alt="colors" />
+    <span>
+      <strong>Adding text localisations with i18next</strong>
+      ...
+    </span>
+  </a>
+
+  <a class="link-item" href="" target="_blank">
+    <img src={Comments} alt="colors" />
+    <span>
+      <strong>Adding SEO Metadata with NextSEO</strong>
+      ...
+    </span>
+  </a>
+
+  <a class="link-item" href="" target="_blank">
+    <img src={Comments} alt="colors" />
+    <span>
+      <strong>Handling authentication with Next-Auth</strong>
+      ...
+    </span>
+  </a>
+
+  <a class="link-item" href="" target="_blank">
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>Testing integrations with Cypress</strong>
+      ...
+    </span>
+  </a>
+
+  <a class="link-item" href="" target="_blank">
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>Handling Native interactions with Expo</strong>
+      ...
+    </span>
+  </a>
+
+
+  <a class="link-item" href="" target="_blank">
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>Including images with Next-Images</strong>
+      ...
+    </span>
+  </a>
+</div>
+
+<div class="subheading">Deploying the site</div>
+
+Before your code makes it to production, ...
+
+<div class="tip-wrapper">
+  <span class="tip">Note</span>The site can only be deployed by senior engineers, and only if <strong>all tests and checks are passing</strong>.
+</div>
+
+### Start coding
+
+Pull the latest changes to your Repo
+```bash
+git fetch --all
+git pull
+```
+
+Check-out a fresh branch with:
+```bash
+git checkout -B feature/feature-name
+```
+Before you do any work, reserve your branch by pushing it with:
+```bash
+git push -u origin feature/feature-name
+```
+
+Now start building your new features!
+```bash
+yarn dev
+```
+
+#### Preview your changes
+
+Now that the developer environment is running, you can use the following urls to
+view your code on a local test server.
+
+- [Storybook](http://localhost:6006): `localhost:6006`
+- [NextJS](http://localhost:3000): `localhost:3000`
+
+
+### Commit your changes
+
+Time to commit your changes using Git.
+First, add files that have changed;
+For example, `git add .` instructs git to add all changes in the current directory.
+Then use the `git commit` command and the `-m` flag to quickly set a message on your commit.
+
+```bash
+git add .
+git commit -m "feat: boss man gets what he wants"
+```
+
+<div class="tip-wrapper">
+  <span class="tip">Tip</span>Using a keyword like <code>feat:</code> at the start of your commit message
+  is good practice, and makes it easy to identify who did what. If you're wondering what to put, take a look at <a href="https://www.conventionalcommits.org/" target="_blank">Conventional Commits</a> for some solid pointers.
+</div>
+
+If all is working, the test runners should now kick in to analyse your changes.
+Some fixes will be applied automatically, others will require you to manually make changes.
+This might include type definitions, code-style rules, or failing tests.
+
+Once that is all taken care of and your commit has been verified, It's time to push your branch.
+
+If you are working on the same branch as someone else, don't forget to check for changes
+```bash
+git fetch --all
+git status
+```
+
+If there are commits available, rebase your work onto the branch by using:
+```bash
+git pull --rebase
+```
+
+If there were no other commits, or once the rebase has completed, it's time to finally get your code into the cloud.
+
+```bash
+git push
+```
+
+Try to push after every significant commit.
+Your branch will be automatically deployed to our staging site with a unique url.
+
+Now just repeat this process until the feature you are working on is complete and fully tested.
+
+### Let's get this merged!
+
+Create a pull request for the `main` branch, and await code review. 
+You can do this using the [GitHub website](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request),
+[GitHub Desktop App](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request), 
+or in [VSCode directly](https://code.visualstudio.com/blogs/2018/09/10/introducing-github-pullrequests).
+
+When you need to move onto another task not related to this one, remember to go back to the main branch:
+```bash
+git fetch --all
+git checkout main
+git pull
+```
+
+Now you're ready to start the development process again.
+
+### Awaiting code review
+
+Once you've created a pull request, your code will be assigned a reviewer and looked at by the team.
+
+If there are changes requested, they should take priority over less complete work or 
+features so that we can get the work merged and keep the ball rolling.
+
+A code review is an opportunity to discuss changes and adjustments, reflect on work done, and celebrate a 
+fixed bug or a new feature! It's also a good way for the team to stay informed of changes to the site,
+so we encourage you to check in on code reviews often.

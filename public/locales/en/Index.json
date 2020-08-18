@@ -1,0 +1,10 @@
+{
+  "h1": "Welcome to",
+  "intro": "Try editing `sections/Index/Index.tsx`!",
+  "link": "NextJS",
+  "pageDescription": "A brief description for meta info",
+  "pageTitle": "Welcome",
+  "signIn": "Sign In",
+  "signOut": "Sign Out",
+  "testButton": "Test Button"
+}

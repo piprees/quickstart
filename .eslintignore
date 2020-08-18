@@ -1,0 +1,12 @@
+!**/.*
+**/node_modules/*
+**/out/*
+**/.next/*
+**/.expo/*
+**/.cypress/*
+**/.storybook/*
+**/.vscode/*
+**/public/*
+**/__snapshots__/**
+tsconfig.json
+tsconfig.test.json

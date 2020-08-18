@@ -1,0 +1,23 @@
+{
+  "recommendations": [
+    "alefragnani.Bookmarks",
+    "msjsdiag.debugger-for-chrome",
+    "anoff.theme-monokai-light",
+    "clinyong.vscode-css-modules",
+    "CoenraadS.bracket-pair-colorizer",
+    "DavidAnson.vscode-markdownlint",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "Durzn.brackethighlighter",
+    "eamodio.gitlens",
+    "ffpetrovic.scss-scope-helper",
+    "monokai.theme-monokai-pro-vscode",
+    "nhoizey.gremlins",
+    "Orta.vscode-jest",
+    "rafamel.subtle-brackets",
+    "stylelint.vscode-stylelint",
+    "usernamehw.errorlens",
+    "vincaslt.highlight-matching-tag",
+    "wayou.vscode-todo-highlight"
+  ]
+}
