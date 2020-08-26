@@ -1,10 +1,9 @@
 {
-  "h1": "Welcome to",
-  "intro": "Try editing `sections/Index/Index.tsx`!",
-  "link": "NextJS",
+  "githublink": "View project on GitHub",
+  "h1": "QuickStart",
+  "intro": "Check out the storybook integration",
+  "link": "Components",
   "pageDescription": "A brief description for meta info",
   "pageTitle": "Welcome",
-  "signIn": "Sign In",
-  "signOut": "Sign Out",
   "testButton": "Test Button"
 }

@@ -1,4 +1,3 @@
-import { signIn, signOut, useSession } from 'next-auth/client'
 import Head from 'next/head'
 import React from 'react'
 
@@ -12,17 +11,11 @@ export const Index = () => {
   addResource('en', 'Index', LocaleEN)
   addResource('cy', 'Index', LocaleCY)
 
-  const [session] = useSession()
-  const hasSession = session != null
   const { t } = useTranslation()
 
   return (
     <ErrorBoundary>
-      <Header
-        onLogin={() => {}}
-        onLogout={() => {}}
-        onCreateAccount={() => {}}
-      />
+      <Header />
       <div className="min-h-full flex flex-col items-center justify-center p-2">
         <Head>
           <title>{t('Index:pageTitle')}</title>
@@ -31,17 +24,17 @@ export const Index = () => {
         </Head>
 
         <main className={Styles.Main}>
-          <h2 className={Styles.Title}>
-            {t('Index:h1')} <a href="https://nextjs.org">{t('Index:link')}</a>
-          </h2>
+          <h2 className={Styles.Title}>{t('Index:h1')}</h2>
 
           <p className={Styles.Description}>{t('Index:intro')}</p>
-
-          {hasSession ? (
-            <button onClick={signIn}>{t('Index:signIn')}</button>
-          ) : (
-            <button onClick={signOut}>{t('Index:signOut')}</button>
-          )}
+          <a href="/storybook">{t('Index:link')}</a>
+          <a
+            href="https://github.com/piprees/quickstart"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t('Index:githublink')}
+          </a>
 
           <button
             onClick={() => {

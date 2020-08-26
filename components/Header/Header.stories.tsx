@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react'
 import React from 'react'
 
-import { Header, HeaderProps } from './Header'
+import { Header } from './Header'
 
 const config: Meta = {
   title: 'Components/Header',
@@ -10,7 +10,7 @@ const config: Meta = {
 
 export default config
 
-const Template: Story<HeaderProps> = (args) => <Header {...args} />
+const Template: Story = (args) => <Header {...args} />
 
 export const Default = Template.bind({})
 Default.parameters = {
@@ -18,9 +18,7 @@ Default.parameters = {
 }
 
 export const LoggedIn = Template.bind({})
-LoggedIn.args = {
-  session: {},
-}
+LoggedIn.args = {}
 
 export const LoggedOut = Template.bind({})
 LoggedOut.args = {}
