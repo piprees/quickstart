@@ -2,11 +2,8 @@
 /// <reference types="next/types/global" />
 /// <reference types="next-images" />
 /// <reference types="next-auth" />
+/// <reference types="next-auth/client" />
+/// <reference types="next-auth/providers" />
 
 declare module 'next-images'
 declare module 'next-offline'
-
-// TODO: Waiting for next-auth types from @types/next-auth
-declare module 'next-auth'
-declare module 'next-auth/client'
-declare module 'next-auth/providers'

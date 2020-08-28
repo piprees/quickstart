@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
 
+import Button from '../../components/Button/Button'
 import Header from '../../components/Header/Header'
 import ErrorBoundary from '../../util/ErrorBoundary'
 import { useTranslation } from '../../util/i18n'
@@ -32,13 +33,13 @@ export const Index = (): JSX.Element => {
             {t('Index:githublink')}
           </a>
 
-          <button
+          <Button
+            size="large"
             onClick={() => {
               window.alert(`With typescript and Jest`)
             }}
-          >
-            {t('Index:testButton')}
-          </button>
+            label={t('Index:testButton')}
+          />
         </main>
       </div>
     </ErrorBoundary>

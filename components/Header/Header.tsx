@@ -1,12 +1,10 @@
-import { signIn, signOut, signUp, useSession } from 'next-auth/client'
+import { signIn, signOut, useSession } from 'next-auth/client'
+import Link from 'next/link'
 import React from 'react'
 
 import ErrorBoundary from '../../util/ErrorBoundary'
 import { useTranslation } from '../../util/i18n'
 import { Button } from '../Button/Button'
-import Styles from './Header.module.css'
-
-// export interface HeaderProps {}
 
 export const Header = (): JSX.Element => {
   const [session] = useSession()
@@ -16,11 +14,11 @@ export const Header = (): JSX.Element => {
 
   return (
     <ErrorBoundary>
-      <header>
-        <div className="flex items-center justify-between px-2 py-1 border-b border-gray-600">
-          <div>
+      <header className="flex items-center justify-between px-2 py-2 border-b-2 border-gray-600">
+        <Link href="/">
+          <a className="flex items-center justify-start" href="/">
             <svg
-              className={Styles.SVG}
+              className="mr-2"
               width="32"
               height="32"
               viewBox="0 0 32 32"
@@ -41,31 +39,34 @@ export const Header = (): JSX.Element => {
                 />
               </g>
             </svg>
-            <h1 className={Styles.Title}>{t('Header:h1')}</h1>
-          </div>
-          <div className={Styles.Wrapper}>
-            {hasSession ? (
+            <h1 className="text-lg font-bold">{t('Header:h1')}</h1>
+          </a>
+        </Link>
+        <div className="flex items-center justify-end space-x-2">
+          {hasSession ? (
+            <Button
+              onClick={(event) => {
+                signOut()
+              }}
+              label={t('Header:logOut')}
+            />
+          ) : (
+            <>
               <Button
-                size="small"
-                onClick={signOut}
-                label={t('Header:logOut')}
+                onClick={(event) => {
+                  signIn()
+                }}
+                label={t('Header:logIn')}
               />
-            ) : (
-              <>
-                <Button
-                  size="small"
-                  onClick={signIn}
-                  label={t('Header:logIn')}
-                />
-                <Button
-                  primary
-                  size="large"
-                  onClick={signUp}
-                  label={t('Header:signUp')}
-                />
-              </>
-            )}
-          </div>
+              <Button
+                primary
+                onClick={(event) => {
+                  signIn()
+                }}
+                label={t('Header:signUp')}
+              />
+            </>
+          )}
         </div>
       </header>
     </ErrorBoundary>

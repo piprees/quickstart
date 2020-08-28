@@ -1,16 +1,18 @@
 import React from 'react'
 
-import Styles from './Button.module.css'
-
+import {
+  STYLES_BASE,
+  STYLES_LARGE,
+  STYLES_MEDIUM,
+  STYLES_PRIMARY,
+  STYLES_SECONDARY,
+  STYLES_SMALL,
+} from './constants'
 export interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
    */
   primary?: boolean
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string
   /**
    * How large should the button be?
    */
@@ -30,27 +32,25 @@ export interface ButtonProps {
  */
 export const Button: React.FC<ButtonProps> = ({
   primary = false,
-  size = 'Medium',
-  backgroundColor,
+  size = 'medium',
   label,
   ...props
 }) => {
-  const modeClass = primary ? Styles.Primary : Styles.Secondary
+  const modeClass = primary ? STYLES_PRIMARY : STYLES_SECONDARY
   const sizeClass =
     size === 'small'
-      ? Styles.Small
+      ? STYLES_SMALL
       : size === 'large'
-      ? Styles.Large
-      : Styles.Medium
+      ? STYLES_LARGE
+      : STYLES_MEDIUM
+
+  const styles = [STYLES_BASE, sizeClass, modeClass].join(' ')
 
   return (
-    <button
-      type="button"
-      className={[Styles.Button, sizeClass, modeClass].join(' ')}
-      style={{ backgroundColor }}
-      {...props}
-    >
+    <button type="button" className={styles} {...props}>
       {label}
     </button>
   )
 }
+
+export default Button
