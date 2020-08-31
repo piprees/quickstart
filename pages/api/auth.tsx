@@ -1,2 +1,2 @@
-import auth from '../../api/auth/auth'
+import { auth } from '../../api/auth/auth'
 export default auth
