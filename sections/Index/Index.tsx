@@ -1,25 +1,24 @@
 import Head from 'next/head'
 import React from 'react'
 
-import Button from '../../components/Button/Button'
-import Header from '../../components/Header/Header'
+import { Button } from '../../components/Button/Button'
+import { Header } from '../../components/Header/Header'
 import ErrorBoundary from '../../util/ErrorBoundary'
 import { useTranslation } from '../../util/i18n'
 import Styles from './Index.module.css'
 
-export const Index = (): JSX.Element => {
+export function Index(): JSX.Element {
   const { t } = useTranslation('Index')
 
   return (
     <ErrorBoundary>
+      <Head>
+        <title>{t('Index:pageTitle')}</title>
+        <meta name="description" content={t('Index:pageDescription')} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header />
       <div className="min-h-full flex flex-col items-center justify-center p-2">
-        <Head>
-          <title>{t('Index:pageTitle')}</title>
-          <meta name="description" content={t('Index:pageDescription')} />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-
         <main className={Styles.Main}>
           <h2 className={Styles.Title}>{t('Index:h1')}</h2>
 

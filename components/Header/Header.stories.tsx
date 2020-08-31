@@ -16,9 +16,3 @@ export const Default = Template.bind({})
 Default.parameters = {
   jest: ['Header.test.tsx'],
 }
-
-export const LoggedIn = Template.bind({})
-LoggedIn.args = {}
-
-export const LoggedOut = Template.bind({})
-LoggedOut.args = {}

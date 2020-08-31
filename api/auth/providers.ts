@@ -6,10 +6,10 @@ interface GenericReturnConfig {
   [key: string]: any
 }
 
-const providers: GenericReturnConfig[] = []
+const PROVIDERS: GenericReturnConfig[] = []
 
 if (typeof GITHUB_ID === 'string' && typeof GITHUB_SECRET === 'string') {
-  providers.push(
+  PROVIDERS.push(
     Providers.GitHub({
       clientId: GITHUB_ID,
       clientSecret: GITHUB_SECRET,
@@ -17,4 +17,4 @@ if (typeof GITHUB_ID === 'string' && typeof GITHUB_SECRET === 'string') {
   )
 }
 
-export default providers
+export { PROVIDERS }

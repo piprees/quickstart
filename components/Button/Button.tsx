@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 import {
@@ -8,11 +9,16 @@ import {
   STYLES_SECONDARY,
   STYLES_SMALL,
 } from './constants'
+
 export interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
    */
   primary?: boolean
+  /**
+   * Is this button currently disabled
+   */
+  disabled?: boolean
   /**
    * How large should the button be?
    */
@@ -25,17 +31,23 @@ export interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void
+  /**
+   * Optional click handler
+   */
+  href?: string
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Button: React.FC<ButtonProps> = ({
+export function Button({
   primary = false,
+  disabled = false,
   size = 'medium',
   label,
-  ...props
-}) => {
+  href,
+  onClick,
+}: ButtonProps): JSX.Element {
   const modeClass = primary ? STYLES_PRIMARY : STYLES_SECONDARY
   const sizeClass =
     size === 'small'
@@ -46,11 +58,27 @@ export const Button: React.FC<ButtonProps> = ({
 
   const styles = [STYLES_BASE, sizeClass, modeClass].join(' ')
 
+  if (disabled) {
+    return (
+      <button type="button" disabled className={styles}>
+        {label}
+      </button>
+    )
+  }
+
+  if (typeof href === 'string' && href.length > 0) {
+    return (
+      <Link href={href}>
+        <a className={styles} href={href}>
+          {label}
+        </a>
+      </Link>
+    )
+  }
+
   return (
-    <button type="button" className={styles} {...props}>
+    <button type="button" className={styles} onClick={onClick}>
       {label}
     </button>
   )
 }
-
-export default Button

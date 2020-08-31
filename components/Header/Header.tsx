@@ -1,15 +1,11 @@
-import { signIn, signOut, useSession } from 'next-auth/client'
 import Link from 'next/link'
 import React from 'react'
 
 import ErrorBoundary from '../../util/ErrorBoundary'
 import { useTranslation } from '../../util/i18n'
-import { Button } from '../Button/Button'
+import { LoginBar } from '../LoginBar/LoginBar'
 
-export const Header = (): JSX.Element => {
-  const [session] = useSession()
-  const hasSession = session != null
-
+export function Header(): JSX.Element {
   const { t } = useTranslation('Header')
 
   return (
@@ -42,32 +38,7 @@ export const Header = (): JSX.Element => {
             <h1 className="text-lg font-bold">{t('Header:h1')}</h1>
           </a>
         </Link>
-        <div className="flex items-center justify-end space-x-2">
-          {hasSession ? (
-            <Button
-              onClick={(event) => {
-                signOut()
-              }}
-              label={t('Header:logOut')}
-            />
-          ) : (
-            <>
-              <Button
-                onClick={(event) => {
-                  signIn()
-                }}
-                label={t('Header:logIn')}
-              />
-              <Button
-                primary
-                onClick={(event) => {
-                  signIn()
-                }}
-                label={t('Header:signUp')}
-              />
-            </>
-          )}
-        </div>
+        <LoginBar />
       </header>
     </ErrorBoundary>
   )

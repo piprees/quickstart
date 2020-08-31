@@ -1,15 +1,18 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import NextAuth from 'next-auth'
 
-import { DATABASE_URL } from './constants'
-import providers from './providers'
+import { DATABASE_URL, PAGES } from './constants'
+import { PROVIDERS } from './providers'
 
 const options = {
-  providers,
+  providers: PROVIDERS,
   database: DATABASE_URL,
+  pages: PAGES,
 }
 
-export default async (
+export async function auth(
   req: NextApiRequest,
   res: NextApiResponse
-): Promise<void> => await NextAuth(req, res, options)
+): Promise<void> {
+  return await NextAuth(req, res, options)
+}

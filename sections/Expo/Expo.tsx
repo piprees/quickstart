@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 
 import { useTranslation } from '../../util/i18n'
 
-export const Expo = (): JSX.Element => {
+export function Expo(): JSX.Element {
   const { t } = useTranslation('Expo')
 
   return (
