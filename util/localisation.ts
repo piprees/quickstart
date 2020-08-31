@@ -1,8 +1,8 @@
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
-import commonCY from '../public/locales/cy/common.json'
-import commonEN from '../public/locales/en/common.json'
+import commonCY from '../locales/cy/common.json'
+import commonEN from '../locales/en/common.json'
 
 export const i18n = i18next
   .use(initReactI18next) // passes i18n down to react-i18next

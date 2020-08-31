@@ -2,16 +2,12 @@ import Head from 'next/head'
 import React from 'react'
 
 import Header from '../../components/Header/Header'
-import LocaleCY from '../../public/locales/cy/Index.json'
-import LocaleEN from '../../public/locales/en/Index.json'
 import ErrorBoundary from '../../util/ErrorBoundary'
-import { addResource, useTranslation } from '../../util/i18n'
+import { useTranslation } from '../../util/i18n'
 import Styles from './Index.module.css'
-export const Index = () => {
-  addResource('en', 'Index', LocaleEN)
-  addResource('cy', 'Index', LocaleCY)
 
-  const { t } = useTranslation()
+export const Index = (): JSX.Element => {
+  const { t } = useTranslation('Index')
 
   return (
     <ErrorBoundary>

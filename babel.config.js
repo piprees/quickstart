@@ -5,7 +5,7 @@ module.exports = {
       'i18next-extract',
       {
         locales: ['en', 'cy'],
-        outputPath: 'public/locales/{{locale}}/{{ns}}.json',
+        outputPath: 'locales/{{locale}}/{{ns}}.json',
         defaultNS: 'common',
         discardOldKeys: true,
       },

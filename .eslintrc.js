@@ -43,6 +43,7 @@ module.exports = {
   rules: {
     'progress/activate': 1,
     'compat/compat': 1,
+    'no-void': 'off',
     'simple-import-sort/sort': 'error',
     'import/order': 'off',
     'prettier/prettier': 'error',

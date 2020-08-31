@@ -1,14 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-import LocaleCY from '../../public/locales/cy/Expo.json'
-import LocaleEN from '../../public/locales/en/Expo.json'
-import { addResource, useTranslation } from '../../util/i18n'
+import { useTranslation } from '../../util/i18n'
 
 export const Expo = (): JSX.Element => {
-  addResource('en', 'Expo', LocaleEN)
-  addResource('cy', 'Expo', LocaleCY)
-  const { t } = useTranslation()
+  const { t } = useTranslation('Expo')
 
   return (
     <View style={styles.container}>

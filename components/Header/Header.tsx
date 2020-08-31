@@ -1,23 +1,18 @@
 import { signIn, signOut, signUp, useSession } from 'next-auth/client'
 import React from 'react'
 
-import LocaleCY from '../../public/locales/cy/Header.json'
-import LocaleEN from '../../public/locales/en/Header.json'
 import ErrorBoundary from '../../util/ErrorBoundary'
-import { addResource, useTranslation } from '../../util/i18n'
+import { useTranslation } from '../../util/i18n'
 import { Button } from '../Button/Button'
 import Styles from './Header.module.css'
 
 // export interface HeaderProps {}
 
-export const Header: React.FC = () => {
-  addResource('en', 'Header', LocaleEN)
-  addResource('cy', 'Header', LocaleCY)
-
+export const Header = (): JSX.Element => {
   const [session] = useSession()
   const hasSession = session != null
 
-  const { t } = useTranslation()
+  const { t } = useTranslation('Header')
 
   return (
     <ErrorBoundary>
