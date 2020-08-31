@@ -24,6 +24,8 @@
 
 html {
   width: 100%;
+  /* stylelint-reason            Used to fix body height on iOS */
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
   height: -webkit-fill-available;
   margin: 0;
   padding: 0;
@@ -37,6 +39,8 @@ body {
   width: 100%;
   max-width: 100%;
   min-height: 100vh;
+  /* stylelint-reason            Used to fix body height on iOS */
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
   min-height: -webkit-fill-available;
   margin: 0;
   padding: 0;

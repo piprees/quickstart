@@ -47,7 +47,6 @@ module.exports = {
     'simple-import-sort/sort': 'error',
     'import/order': 'off',
     'prettier/prettier': 'error',
-    'i18next/no-literal-string': ['error', { markupOnly: true }],
     'react/react-in-jsx-scope': 0,
     'react/display-name': 0,
     'react/prop-types': 0,
@@ -71,6 +70,10 @@ module.exports = {
       {
         allow: ['warn', 'error'],
       },
+    ],
+    'i18next/no-literal-string': [
+      1,
+      { ignoreAttribute: ['data-test-id', 'testid'], markupOnly: true },
     ],
   },
   overrides: [

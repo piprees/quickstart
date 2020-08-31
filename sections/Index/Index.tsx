@@ -18,7 +18,10 @@ export function Index(): JSX.Element {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="min-h-full flex flex-col items-center justify-center p-2">
+      <div
+        data-test-id="Index"
+        className="min-h-full flex flex-col items-center justify-center p-2"
+      >
         <main className={Styles.Main}>
           <h2 className={Styles.Title}>{t('Index:h1')}</h2>
 
@@ -34,6 +37,7 @@ export function Index(): JSX.Element {
 
           <Button
             size="large"
+            testid="IndexButton"
             onClick={() => {
               window.alert(`With typescript and Jest`)
             }}

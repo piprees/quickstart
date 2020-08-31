@@ -28,6 +28,10 @@ export interface ButtonProps {
    */
   label: string
   /**
+   * Test ID for Integration Tests (Automatically removed in production)
+   */
+  testid?: string
+  /**
    * Optional click handler
    */
   onClick?: () => void
@@ -44,6 +48,7 @@ export function Button({
   primary = false,
   disabled = false,
   size = 'medium',
+  testid,
   label,
   href,
   onClick,
@@ -60,7 +65,7 @@ export function Button({
 
   if (disabled) {
     return (
-      <button type="button" disabled className={styles}>
+      <button type="button" data-test-id={testid} disabled className={styles}>
         {label}
       </button>
     )
@@ -69,7 +74,7 @@ export function Button({
   if (typeof href === 'string' && href.length > 0) {
     return (
       <Link href={href}>
-        <a className={styles} href={href}>
+        <a className={styles} data-test-id={testid} href={href}>
           {label}
         </a>
       </Link>
@@ -77,7 +82,12 @@ export function Button({
   }
 
   return (
-    <button type="button" className={styles} onClick={onClick}>
+    <button
+      type="button"
+      data-test-id={testid}
+      className={styles}
+      onClick={onClick}
+    >
       {label}
     </button>
   )
