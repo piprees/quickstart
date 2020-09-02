@@ -1,5 +1,4 @@
 import '../sections/styles.css'
-import '../util/localisation'
 
 import { Provider as AuthenticationProvider } from 'next-auth/client'
 import type { AppProps } from 'next/app'

@@ -23,7 +23,7 @@
     "test:integration:watch": "yarn cypress open",
     "commit": "yarn lint && yarn test:unit",
     "clean:storybook": "rm -rf ./public/storybook || true",
-    "storybook": "yarn start-storybook -p 6006 --loglevel warn --quiet",
+    "storybook": "yarn start-storybook -p 6006 -s ./public --loglevel warn --quiet",
     "prestorybook:build": "yarn clean:storybook && yarn test:unit:json",
     "storybook:build": "yarn build-storybook --loglevel warn --quiet --output-dir ./public/storybook"
   },
@@ -41,6 +41,7 @@
     "next-auth": "^3.1.0",
     "next-images": "^1.4.1",
     "next-offline": "^5.0.2",
+    "next-translate": "^0.17.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-i18next": "^11.7.1",

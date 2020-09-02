@@ -1,10 +1,11 @@
+import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-import { useTranslation } from '../../util/i18n'
+import { getI18nPaths, getI18nProps, withI18n } from '../../util/i18n'
 
 export function Expo(): JSX.Element {
-  const { t } = useTranslation('Expo')
+  const { t } = useTranslation()
 
   return (
     <View style={styles.container}>
@@ -29,4 +30,13 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Expo
+export const getStaticProps = async (ctx) => ({
+  props: await getI18nProps(ctx, ['common', 'Expo']),
+})
+
+export const getStaticPaths = async () => ({
+  paths: getI18nPaths(),
+  fallback: false,
+})
+
+export default withI18n(Expo)

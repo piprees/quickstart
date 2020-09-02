@@ -1,12 +1,12 @@
+import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
 import React from 'react'
 
 import ErrorBoundary from '../../util/ErrorBoundary'
-import { useTranslation } from '../../util/i18n'
 import { LoginBar } from '../LoginBar/LoginBar'
 
 export function Header(): JSX.Element {
-  const { t } = useTranslation('Header')
+  const { t } = useTranslation()
 
   return (
     <ErrorBoundary>
@@ -35,7 +35,7 @@ export function Header(): JSX.Element {
                 />
               </g>
             </svg>
-            <h1 className="text-lg font-bold">{t('Header:h1')}</h1>
+            <h1 className="text-lg font-bold">{t('common:h1')}</h1>
           </a>
         </Link>
         <LoginBar />

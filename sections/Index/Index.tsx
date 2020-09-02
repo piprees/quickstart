@@ -1,14 +1,15 @@
+import useTranslation from 'next-translate/useTranslation'
 import Head from 'next/head'
 import React from 'react'
 
 import { Button } from '../../components/Button/Button'
 import { Header } from '../../components/Header/Header'
 import ErrorBoundary from '../../util/ErrorBoundary'
-import { useTranslation } from '../../util/i18n'
+import { getI18nPaths, getI18nProps, withI18n } from '../../util/i18n'
 import Styles from './Index.module.css'
 
 export function Index(): JSX.Element {
-  const { t } = useTranslation('Index')
+  const { t } = useTranslation()
 
   return (
     <ErrorBoundary>
@@ -20,7 +21,7 @@ export function Index(): JSX.Element {
       <Header />
       <div
         data-test-id="Index"
-        className="min-h-full flex flex-col items-center justify-center p-2"
+        className="flex flex-col items-center justify-center min-h-full p-2"
       >
         <main className={Styles.Main}>
           <h2 className={Styles.Title}>{t('Index:h1')}</h2>
@@ -49,4 +50,13 @@ export function Index(): JSX.Element {
   )
 }
 
-export default Index
+export const getStaticProps = async (ctx) => ({
+  props: await getI18nProps(ctx, ['common', 'Index']),
+})
+
+export const getStaticPaths = async () => ({
+  paths: getI18nPaths(),
+  fallback: false,
+})
+
+export default withI18n(Index)
