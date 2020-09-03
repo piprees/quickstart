@@ -2,7 +2,9 @@ import React from 'react'
 
 import { LoginBar } from './LoginBar'
 
-describe('LoginBar', () => {
+export const title = 'Unit/Components/LoginBar'
+
+describe(title, () => {
   it('Should render without an error', () =>
     expect(() => <LoginBar />).not.toThrow())
 

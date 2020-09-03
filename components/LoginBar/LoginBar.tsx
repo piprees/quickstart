@@ -16,7 +16,11 @@ export function LoginBar(): JSX.Element {
     <ErrorBoundary>
       <div className="flex items-center justify-end space-x-2">
         {hasSession ? (
-          <Button data-test-id="SignOutButton" href={PAGES.signOut} label={t('common:signOut')} />
+          <Button
+            data-test-id="SignOutButton"
+            href={PAGES.signOut}
+            label={t('common:signOut')}
+          />
         ) : (
           <>
             <Button

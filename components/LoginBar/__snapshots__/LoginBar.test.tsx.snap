@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginBar Should match the snapshot 1`] = `<LoginBar />`;
+exports[`Unit/Components/LoginBar Should match the snapshot 1`] = `<LoginBar />`;

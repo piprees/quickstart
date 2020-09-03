@@ -2,7 +2,9 @@ import React from 'react'
 
 import { Button, ButtonProps } from './Button'
 
-describe('Button', () => {
+export const title = 'Unit/Components/Button'
+
+describe(title, () => {
   const props: ButtonProps = {
     label: 'Test Button',
   }

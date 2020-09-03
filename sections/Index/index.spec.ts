@@ -1,10 +1,10 @@
 import { STYLES_LARGE } from '../../components/Button/constants'
+export const title = 'Integration/sections/Index'
 
-context('sections/Index', () => {
-  beforeEach(() => 
-    cy.visit('http://localhost:3000/en'))
+context(title, () => {
+  beforeEach(() => cy.visit('http://localhost:3000/en'))
 
-  context('sections/Index:Button', () => {
+  context(`${title}:Button`, () => {
     it('Contains the button', () =>
       cy.get('[data-test-id="IndexButton"]').should('exist'))
 

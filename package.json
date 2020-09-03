@@ -15,13 +15,15 @@
     "lint:types": "yarn tsc --pretty --noEmit",
     "lint:md": "markdownlint \"./**/*.md\" --ignore node_modules --fix",
     "test": "yarn test:unit && yarn test:e2e",
+    "test:watch": "yarn test:unit:watch && yarn test:e2e:watch",
     "test:unit": "yarn jest",
     "test:unit:watch": "yarn test:unit --watch",
     "test:unit:json": "jest --json --outputFile=.storybook/.jest-test-results.json || true",
     "test:unit:json:watch": "jest --json --outputFile=.storybook/.jest-test-results.json --watch  || true",
     "test:e2e": "yarn start-server-and-test \"next dev\" http://localhost:3000 \"yarn cypress run\"",
     "test:e2e:watch": "yarn cypress open",
-    "commit": "yarn lint && yarn test:unit",
+    "commit": "yarn lint",
+    "push": "yarn test",
     "clean:storybook": "rm -rf ./public/storybook || true",
     "storybook": "yarn start-storybook -p 6006 -s ./public --loglevel warn --quiet",
     "prestorybook:build": "yarn clean:storybook && yarn test:unit:json",
@@ -29,7 +31,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn commit"
+      "pre-commit": "yarn commit",
+      "pre-push": "yarn push"
     }
   },
   "browserslist": "> 0.5% in my stats",
