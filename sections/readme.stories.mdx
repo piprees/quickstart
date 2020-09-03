@@ -134,38 +134,31 @@ developer experience. It uses:
 - Next-Auth for authentication
 - Next-Images for image optimisation
 - Next-Offline with Expo for PWA generation and React Native support
-- i18next for multilanguage support
+- Next-Translate for multilanguage support
 - Stylelint, ESLint and Prettier for linting and code style
 - Vercel for CDN and Deploying
 
 <div class="subheading">Project TO-DO</div>
 
-- Remove example pages, components, & tests
 - Move in project components and convert to typescript
-- Write UI localisation [en]
-- Write component unit tests (jest)
-- Write storybook stories for components
-- Write storybook documentation for components
-- Get docs to display in storybook
 - Get design resources (sketches, etc) to display in storybook
-- Move in project page and convert to typescript
-- Write page localisation [en]
 - Write page integration tests (cypress)
+- Set up Service Worker
+- Set up NextJS routing instead of using vercel.json
 
 <div class="subheading">Project Layout</div>
 
-This layout allows NextJS page files to be co-located with their css and tests
+This layout allows NextJS page files to be co-located with their css, tests, and stories
 
 - Components go in the `/components/{component}/{files}` folder
 - Pages go in the `/sections/{section}/{files}` folder
-- API Endpoints go in the `/api/{endpoint}` folder
+- API Endpoints go in the `/interface/{endpoint}` folder
 - Routing is handled by creating a pointer file inside `/pages` or `/pages/api`
 - Global styles go in `/sections/styles.css`
 - Image assets go in `/public/images/{files}`
-- Documentation and stories are stored as `/{component|api}/{component|api}.stories.tsx`
-- Unit tests (jest & react-testing-library) are stored as `/{component|api}/{component|api}.test.tsx`
-- E2E tests (cypress) are stored as `/{section|api}/{section|api}.spec.tsx`
-
+- Documentation and stories are stored as `/{component|interface}/{component|interface}.stories.tsx`
+- Unit tests (jest & react-testing-library) are stored as `/{component|interface}/{component|interface}.test.tsx`
+- E2E tests (cypress) are stored as `/{section|interface}/{section|interface}.spec.tsx`
 
 <div class="subheading">Getting set-up</div>
 
@@ -184,6 +177,7 @@ Next, you're going to need to get set up with our developer environment.
 - Install [NodeJS](https://nodejs.org/en/download/)
 - Install [Yarn](https://yarnpkg.com/getting-started/install)
 - Install [VSCode](https://code.visualstudio.com/)
+- Install [Now](https://now.sh/)
 - Add the recommended extensions to get VSCode set up quickly, or pick and choose the ones you want.
 
 Now that you are set up, launch our developer environment with:
@@ -259,7 +253,7 @@ We use NextJS to power our front-end...
   <a class="link-item" href="" target="_blank">
     <img src={Comments} alt="colors" />
     <span>
-      <strong>Adding text localisations with i18next</strong>
+      <strong>Adding text localisations with Next-Translate</strong>
       ...
     </span>
   </a>

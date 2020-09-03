@@ -2,7 +2,7 @@
 
 ## Get started
 
-Clone this repo, then run `yarn dev`
+Clone this repo, then run `now dev` or `yarn dev`
 
 ## What is this project
 
