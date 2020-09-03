@@ -21,6 +21,7 @@ module.exports = {
     'security',
     'react-hooks',
     'i18next',
+    'test-selectors',
     'prettier',
   ],
   extends: [
@@ -31,6 +32,7 @@ module.exports = {
     'plugin:compat/recommended',
     'plugin:security/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:test-selectors/recommended',
     'prettier',
     'prettier/@typescript-eslint',
   ],
@@ -50,6 +52,7 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'react/display-name': 0,
     'react/prop-types': 0,
+    'test-selectors/anchor': 'off',
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/explicit-member-accessibility': 0,
     '@typescript-eslint/indent': 0,

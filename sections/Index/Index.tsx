@@ -37,8 +37,8 @@ export function Index(): JSX.Element {
           </a>
 
           <Button
+            data-test-id="IndexButton"
             size="large"
-            testid="IndexButton"
             onClick={() => {
               window.alert(`With typescript and Jest`)
             }}
