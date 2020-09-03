@@ -2,7 +2,7 @@ import { useSession } from 'next-auth/client'
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 
-import { PAGES } from '../../api/auth/constants'
+import { PAGES } from '../../interface/auth/constants'
 import ErrorBoundary from '../../util/ErrorBoundary'
 import { Button } from '../Button/Button'
 

@@ -10,7 +10,7 @@ const plugins = [
       locales: ['en', 'cy'],
       outputPath: 'locales/{{locale}}/{{ns}}.json',
       defaultNS: 'common',
-      discardOldKeys: true,
+      discardOldKeys: false,
     },
   ],
   'babel-plugin-jsx-remove-data-test-id',
