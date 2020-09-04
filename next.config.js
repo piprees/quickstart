@@ -1,10 +1,23 @@
-const { withExpo } = require('@expo/next-adapter')
 const withOffline = require('next-offline')
-const withImages = require('next-images')
+const withOptimizedImages = require('next-optimized-images')
 
 module.exports = withOffline({
+  async redirects() {
+    return [
+      {
+        source: '/((?![a-z]{2}\\/{0,1})):slug',
+        destination: '/en/:slug',
+        permanent: true,
+      },
+      {
+        source: '/',
+        destination: '/en',
+        permanent: true,
+      },
+    ]
+  },
   workboxOpts: {
-    swDest: 'workbox-service-worker.js',
+    swDest: 'public/workbox-service-worker.js',
     runtimeCaching: [
       {
         urlPattern: /^https?.*/,
@@ -18,10 +31,11 @@ module.exports = withOffline({
       },
     ],
   },
-  ...withExpo(
-    withImages({
-      esModule: true,
-      projectRoot: __dirname,
-    })
-  ),
+  ...withOptimizedImages({
+    esModule: true,
+    projectRoot: __dirname,
+    images: {
+      handleImages: ['jpg', 'jpeg', 'png', 'svg', 'webp', 'gif', 'ico'],
+    },
+  }),
 })

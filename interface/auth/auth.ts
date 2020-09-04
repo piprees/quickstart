@@ -16,3 +16,5 @@ export async function auth(
 ): Promise<void> {
   return await NextAuth(req, res, options)
 }
+
+export default auth

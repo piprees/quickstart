@@ -1,6 +1,6 @@
 import Providers from 'next-auth/providers'
 
-import { GITHUB_ID, GITHUB_SECRET } from './constants'
+import { EXAMPLE_CREDENTIALS_OPTIONS } from './constants'
 
 interface GenericReturnConfig {
   [key: string]: any
@@ -8,13 +8,6 @@ interface GenericReturnConfig {
 
 const PROVIDERS: GenericReturnConfig[] = []
 
-if (typeof GITHUB_ID === 'string' && typeof GITHUB_SECRET === 'string') {
-  PROVIDERS.push(
-    Providers.GitHub({
-      clientId: GITHUB_ID,
-      clientSecret: GITHUB_SECRET,
-    })
-  )
-}
+PROVIDERS.push(Providers.Credentials(EXAMPLE_CREDENTIALS_OPTIONS))
 
 export { PROVIDERS }

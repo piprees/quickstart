@@ -1,11 +1,12 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
-/// <reference types="next-images" />
 /// <reference types="next-auth" />
 /// <reference types="next-auth/client" />
 /// <reference types="next-auth/providers" />
+/// <reference types="optimized-images-loader" />
 
-declare module 'next-images'
+declare module 'next-optimized-images'
+declare module 'next-translate/I18nProvider'
 declare module 'next-offline'
 
 declare module 'next-translate/useTranslation' {

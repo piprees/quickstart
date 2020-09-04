@@ -16,6 +16,21 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-jest",
     "storybook-addon-designs",
-    '@storybook/addon-a11y'
-  ]
+    '@storybook/addon-a11y',
+  ],
+  webpackFinal: async (config, { configType }) => {
+    config.module.rules.push({
+      test: /\.(jpe?g|png|svg|webp|gif|ico)$/i,
+      use: [
+        {
+          loader: 'optimized-images-loader',
+          options: {
+            includeStrategy: 'react',
+            handleImages: ['jpg', 'jpeg', 'png', 'svg', 'webp', 'gif', 'ico'],
+          },
+        },
+      ],
+    });
+    return config;
+  },
 }

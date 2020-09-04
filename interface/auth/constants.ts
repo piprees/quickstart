@@ -1,12 +1,27 @@
 export const DATABASE_URL = process.env.DATABASE_URL
 
-export const GITHUB_ID = process.env.GITHUB_ID
-export const GITHUB_SECRET = process.env.GITHUB_SECRET
-
 export const PAGES = {
-  signIn: '/auth/signin',
-  signOut: '/auth/signout',
-  error: '/auth/error',
-  verifyRequest: '/auth/verify',
+  signIn: '/signin',
+  signOut: '/signout',
+  error: '/error',
+  verifyRequest: '/verify',
   newUser: '/',
+}
+
+export const EXAMPLE_CREDENTIALS_OPTIONS = {
+  id: 'example-credentials',
+  name: 'Credentials',
+  credentials: {
+    username: { label: 'Username', type: 'text', placeholder: 'quickstart' },
+    password: { label: 'Password', type: 'password' },
+  },
+  authorize: async () => {
+    const user = {
+      id: 1,
+      name: 'QuickStart User',
+      email: 'user@quickstart.piprees.dev',
+    }
+    if (typeof user === 'object') return await Promise.resolve(user)
+    else return await Promise.resolve(null)
+  },
 }

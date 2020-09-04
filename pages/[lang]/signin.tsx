@@ -2,4 +2,4 @@ export {
   default,
   getStaticProps,
   getStaticPaths,
-} from '../../sections/Expo/Expo'
+} from '../../sections/Auth/SignIn/SignIn'

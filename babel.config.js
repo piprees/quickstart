@@ -1,4 +1,4 @@
-const presets = ['@expo/next-adapter/babel']
+const presets = ['next/babel']
 
 const plugins = [
   [
@@ -10,6 +10,7 @@ const plugins = [
       discardOldKeys: false,
     },
   ],
+  'react-optimized-image/plugin',
 ]
 
 module.exports = {
