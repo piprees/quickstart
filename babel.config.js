@@ -1,6 +1,7 @@
 const presets = ['next/babel']
 
 const plugins = [
+  'react-optimized-image/plugin',
   [
     'i18next-extract',
     {
@@ -10,7 +11,6 @@ const plugins = [
       discardOldKeys: false,
     },
   ],
-  'react-optimized-image/plugin',
 ]
 
 module.exports = {

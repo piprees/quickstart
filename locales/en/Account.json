@@ -1,0 +1,10 @@
+{
+  "h1": "Account Settings",
+  "hello": "Hope your having a great day, {{name}}!",
+  "helloTitle": "Welcome back",
+  "intro": "Here is a page with authentication.",
+  "pageDescription": "Manage your account",
+  "pageTitle": "Account | QuickStart",
+  "signIn": "To edit your account details, just sign in below.",
+  "signInTitle": "Sign In"
+}

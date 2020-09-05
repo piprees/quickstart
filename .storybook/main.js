@@ -1,3 +1,4 @@
+
 module.exports = {
   "logLevel": "error",
   "stories": [
@@ -18,15 +19,14 @@ module.exports = {
     "storybook-addon-designs",
     '@storybook/addon-a11y',
   ],
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: async (config) => {
     config.module.rules.push({
-      test: /\.(jpe?g|png|svg|webp|gif|ico)$/i,
+      test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
       use: [
         {
           loader: 'optimized-images-loader',
           options: {
-            includeStrategy: 'react',
-            handleImages: ['jpg', 'jpeg', 'png', 'svg', 'webp', 'gif', 'ico'],
+            includeStrategy: 'react'
           },
         },
       ],

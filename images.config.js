@@ -1,6 +1,8 @@
 module.exports = {
   default: {
+    loading: 'lazy',
     webp: true,
+    densities: [1, 2],
   },
   types: {
     sm: {

@@ -1,8 +1,11 @@
-import Link from 'next/link'
+import fixHref from 'next-translate/fixHref'
+import Link from 'next-translate/Link'
+import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 
 import {
   STYLES_BASE,
+  STYLES_DISABLED,
   STYLES_LARGE,
   STYLES_MEDIUM,
   STYLES_PRIMARY,
@@ -49,7 +52,13 @@ export function Button({
   onClick,
   ...props
 }: ButtonProps): JSX.Element {
-  const modeClass = primary ? STYLES_PRIMARY : STYLES_SECONDARY
+  const { lang } = useTranslation()
+  const modeClass = disabled
+    ? STYLES_DISABLED
+    : primary
+    ? STYLES_PRIMARY
+    : STYLES_SECONDARY
+
   const sizeClass =
     size === 'small'
       ? STYLES_SMALL
@@ -69,7 +78,7 @@ export function Button({
 
   if (typeof href === 'string' && href.length > 0) {
     return (
-      <Link href={href}>
+      <Link href={fixHref(href, lang)}>
         <a {...props} className={styles} href={href}>
           {label}
         </a>
