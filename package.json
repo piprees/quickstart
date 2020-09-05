@@ -5,8 +5,8 @@
   "version": "1.0.0",
   "scripts": {
     "predev": "yarn install && yarn audit",
-    "dev": "yarn concurrently -n next,storybook,jest,cypress -c green,magenta,cyan,purple --kill-others --restart-tries 0  --handle-input --default-input-target 2 \"yarn next dev\" \"yarn storybook\" \"yarn test:unit:json:watch\" \"yarn test:e2e:watch\"",
-    "prebuild": "yarn storybook:build",
+    "dev": "yarn concurrently -n next,storybook,jest,cypress -c green,magenta,cyan,purple --kill-others --restart-tries 0  --handle-input --default-input-target 2 \"yarn next dev\" \"yarn storybook:watch\" \"yarn test:unit:json:watch\" \"yarn test:e2e:watch\"",
+    "prebuild": "yarn storybook",
     "build": "next build",
     "start": "yarn next start",
     "lint": "yarn lint:css && yarn lint:md && yarn lint:js && yarn lint:types",
@@ -24,10 +24,13 @@
     "test:e2e:watch": "yarn cypress open",
     "commit": "yarn lint",
     "push": "yarn test",
+    "clean": "yarn clean:cache && yarn clean:nextcache && yarn clean:storybook",
+    "clean:cache": "rm -rf ./node_modules/.cache || true",
+    "clean:nextcache": "rm -rf ./.next || true",
     "clean:storybook": "rm -rf ./public/storybook || true",
-    "storybook": "yarn start-storybook -p 6006 -s ./public --loglevel warn --quiet",
-    "prestorybook:build": "yarn clean:storybook && yarn test:unit:json",
-    "storybook:build": "yarn build-storybook --loglevel warn --quiet --output-dir ./public/storybook"
+    "prestorybook": "yarn clean:storybook && yarn test:unit:json",
+    "storybook:": "yarn build-storybook --loglevel warn --quiet --output-dir ./public/storybook",
+    "storybook:watch": "yarn start-storybook -p 6006 -s ./public --loglevel warn --quiet"
   },
   "husky": {
     "hooks": {

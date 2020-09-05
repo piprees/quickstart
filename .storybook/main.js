@@ -1,4 +1,3 @@
-
 module.exports = {
   "logLevel": "error",
   "stories": [
@@ -20,8 +19,13 @@ module.exports = {
     '@storybook/addon-a11y',
   ],
   webpackFinal: async (config) => {
+    // Override the images handler of file-loader to stop it
+    // stealing file types away from optimized-images-loader
+    config.module.rules[7].test = /\.(eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/;
+
+    // Add optimized-images-loader to handle those file
     config.module.rules.push({
-      test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
+      test: /\.(png|jpg|jpeg|gif|svg|webp|ico)$/i,
       use: [
         {
           loader: 'optimized-images-loader',
