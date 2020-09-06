@@ -1,7 +1,6 @@
 module.exports = {
   collectCoverage: true,
   coverageReporters: ['json', 'html'],
-  publicPath: '<rootDir>/public/coverage',
   coverageDirectory: '<rootDir>/public/coverage',
   reporters: [
     'default',
