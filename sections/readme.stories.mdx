@@ -1,124 +1,12 @@
-
 import { Meta } from '@storybook/addon-docs/blocks';
-import Code from './assets/code-brackets.svg';
-import Colors from './assets/colors.svg';
-import Comments from './assets/comments.svg';
-import Direction from './assets/direction.svg';
-import Flow from './assets/flow.svg';
-import Plugin from './assets/plugin.svg';
-import Repo from './assets/repo.svg';
-import StackAlt from './assets/stackalt.svg';
+import {LinkList} from '../components/LinkList/LinkList.tsx'
+import {Tip} from '../components/Tip/Tip.tsx'
 
 <Meta title="Introduction" />
 
-<style>{`
-  .subheading {
-    --mediumdark: '#999999';
-    font-weight: 900;
-    font-size: 13px;
-    color: #999;
-    letter-spacing: 6px;
-    line-height: 24px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    margin-top: 40px;
-  }
-
-  .link-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    row-gap: 10px;
-  }
-
-  @media (min-width: 620px) {
-    .link-list {
-      row-gap: 20px;
-      column-gap: 20px;
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media all and (-ms-high-contrast:none) {
-  .link-list {
-      display: -ms-grid;
-      -ms-grid-columns: 1fr 1fr;
-      -ms-grid-rows: 1fr 1fr;
-    }
-  }
-
-  .link-item {
-    display: block;
-    padding: 20px 30px 20px 15px;
-    border: 1px solid #00000010;
-    border-radius: 5px;
-    transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
-    color: #333333;
-    display: flex;
-    align-items: flex-start;
-  }
-
-  .link-item:hover {
-    border-color: #1EA7FD50;
-    transform: translate3d(0, -3px, 0);
-    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
-  }
-
-  .link-item:active {
-    border-color: #1EA7FD;
-    transform: translate3d(0, 0, 0);
-  }
-
-  .link-item strong {
-    font-weight: 700;
-    display: block;
-    margin-bottom: 2px;
-  }
-  
-  .link-item img {
-    height: 40px;
-    width: 40px;
-    margin-right: 15px;
-    flex: none;
-  }
-
-  .link-item span {
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-  .tip {
-    display: inline-block;
-    border-radius: 1em;
-    font-size: 11px;
-    line-height: 12px;
-    font-weight: 700;
-    background: #E7FDD8;
-    color: #66BF3C;
-    padding: 4px 12px;
-    margin-right: 10px;
-    vertical-align: top;
-  }
-
-  .tip-wrapper {
-    font-size: 13px;
-    line-height: 20px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
-  .tip-wrapper code {
-    font-size: 12px;
-    display: inline-block;
-  }
-
-  
-`}</style>
-
 # Welcome
 
-
-<div class="subheading">What is this project</div>
+## What is this project
 
 This is a proof of concept front-end put together to showcase a fully-modernised
 developer experience. It uses:
@@ -126,7 +14,7 @@ developer experience. It uses:
 - Typescript for type-safe JS
 - CSS Modules for scope-safe CSS
 - Tailwind for generic css
-- NextJS for SSR react
+- Next.js for SSR react
 - React for components
 - Jest for unit testing
 - Cypress for integration testing
@@ -138,31 +26,50 @@ developer experience. It uses:
 - Stylelint, ESLint and Prettier for linting and code style
 - Vercel for CDN and Deploying
 
-<div class="subheading">Project TO-DO</div>
+## Project Layout
 
-- Move in project components and convert to typescript
-- Get design resources (sketches, etc) to display in storybook
-- Set up Service Worker
-- Set up modern NextJS routing instead of using vercel.json
-- Add Login, Logout & Signup page examples
-- Write page integration tests (cypress)
-- Add example docs for api in storybook
+Next.js has an amazing, file-system based routing system.
+The problem is that keeping tests, stylesheets, etc together with
+their respective components is an easy way to help manage technical debt,
+but Next doesn't like it much when we have tons of files in these routing folders!
 
-<div class="subheading">Project Layout</div>
+To address this, we keep our sources and our routing seperate, and connect
+them with files and exports. This layout allows Next.js page files to be 
+co-located with their dependencies!
 
-This layout allows NextJS page files to be co-located with their css, tests, and stories
+Think of `/sections/` as our "pages" or "templates" folder.
+We then point to these pages using files inside Next.js's `/pages/` folder.
 
+Sections are made up of components, which naturally are found in the `/components/` folder.
+Components are re-usable, fully tested chunks of code with predicable behaviour.
+
+Next.js also has amazing support for serverless functions, which are great for handling
+one-off odd jobs or transforming and validating data.
+
+We also want to keep our tests and other files co-located with our API endoints, so we store
+our actual endpoint code inside `/interfaces/`, and just like with Pages and Sections we point them
+with files inside `/api/`, so that Next.js can use them.
+
+We also want to make supporting multilanguage an option moving forward, so we use
+i18next to deliver text content. Not only does this make text re-usable and easy to update,
+it also means that supporting another language is a synch. We can simply copy the `/locales/en`
+folder, send it off for translation, and then paste it at `/locales/cy`. Now we have can support
+Welsh speaking users!
+
+### What goes where?
+
+- Global styles can be found in in `/sections/styles.css`
 - Components go in the `/components/{component}/{files}` folder
 - Pages go in the `/sections/{section}/{files}` folder
 - API Endpoints go in the `/interface/{endpoint}` folder
 - Routing is handled by creating a pointer file inside `/pages` or `/pages/api`
-- Global styles go in `/sections/styles.css`
-- Image assets go in `/public/images/{files}`
+- Images and assets go in `/{component|section}/assets/{files}` or `/public/assets/{files}` or
+- Localisations are automatically extracted and stored at `/locales/{languageCode}/{namespace}.json`
 - Documentation and stories are stored as `/{component|interface}/{component|interface}.stories.tsx`
 - Unit tests (jest & react-testing-library) are stored as `/{component|interface}/{component|interface}.test.tsx`
 - E2E tests (cypress) are stored as `/{section|interface}/{section|interface}.spec.tsx`
 
-<div class="subheading">Getting set-up</div>
+## Getting set-up
 
 To get started, you need a local copy of our codebase.
 Open a command line, and navigate to an easy to access location,
@@ -188,126 +95,125 @@ yarn dev
 ```
 You can cancel out of this at any time by mashing <kbd>ctrl+c</kbd> on Windows or <kbd>cmd+c</kbd> on MacOS
 
-<div class="tip-wrapper">
-  <span class="tip">Note</span>We'll automatically check and install dependencies when you run `yarn dev` to make your life easier.
-</div>
+<Tip label="Note">
+  We'll automatically check and install dependencies when you run `yarn dev` to make your life easier.
+</Tip>
 
-<div class="subheading">Building components</div>
+## Building components
 
-Once you're ready to start developing components, ...
+Once you've got set up and are ready to start developing components, it might be worth looking through these videos to help understand the tools and philosophy of our development process.
 
-<div class="link-list">
-  <a class="link-item" href="" target="_blank">
-    <img src={Plugin} alt="plugin" />
-    <span>
-      <strong>Using Git and Github</strong>
-      ...
-    </span>
-  </a>
+<LinkList links={[
+  {
+    href: "https://www.youtube.com/watch?v=SWYqp7iY_Tc",
+    title: "Using Git and Github",
+    description: 'Traversy Media: In this Git tutorial we will talk about what exactly Git is and we will look at and work with all of the basic and most important commands such as add, commit, status, push and more. This tutorial is very beginner friendly.'
+  },
+  {
+    href: "https://www.youtube.com/watch?v=kCR3JAR7CHE",
+    title: "Test Driven Development (TDD) with Jest",
+    description: 'Kent C. Dodds: Follow along with this stream, introducing you to TDD with React powered by Jest and react-testing-library'
+  },
+  {
+    href: "https://www.youtube.com/watch?v=p2sZKAPOQXs",
+    title: "Design Driven Development (DDD) with Storybook",
+    description: 'Headway: Learn how to make building beautiful UI from Figma to React in an organized and efficient way for your team. Walk through how you can begin to assemble a Storybook design system using components from Figma to React.'
+  },
+  {
+    href: "https://www.youtube.com/watch?v=6zIuAyLZPH0",
+    title: "Style your component with Tailwind",
+    description: 'Scotch.io: Tailwind CSS is a utility framework that may be different than other CSS frameworks you may be used to. We\'ll explore why Tailwind CSS is a great way to think about your CSS and how it differs from Bootstrap. We will compare Bootstrap cards and buttons vs Tailwind to see how we can build faster with Tailwind CSS.'
+  },
+  {
+    href: "https://www.youtube.com/watch?v=nyB7MlYo1v0",
+    title: "Create bespoke styles with CSS Modules",
+    description: 'codedamn: Learn how you can make use of CSS modules in Next.js and work with them.'
+  },
+]} />
 
-  <a class="link-item" href="" target="_blank">
-    <img src={Plugin} alt="plugin" />
-    <span>
-      <strong>Test Driven Development (TDD) with Jest</strong>
-      ...
-    </span>
-  </a>
+## Building pages
 
-  <a class="link-item" href="" target="_blank">
-    <img src={StackAlt} alt="plugin" />
-    <span>
-      <strong>Write a Story with Storybook</strong>
-      ...
-    </span>
-  </a>
+We use NextJS and Vercel as our front-end stack, which makes it possible to work with
+react on the server and in the browser. 
 
-  <a class="link-item" href="" target="_blank">
-    <img src={Colors} alt="colors" />
-    <span>
-      <strong>Style your component with Tailwind &amp; CSS Modules</strong>
-      ...
-    </span>
-  </a>
-</div>
+<figure>
+  <blockquote>
+Next.js: The React Framework
 
-<div class="subheading">Building pages</div>
+Next.js has the best-in-class "Developer Experience" and many built-in features; a sample of them are:
 
-We use NextJS to power our front-end...
++ An intuitive page-based routing system (with support for dynamic routes)
++ Pre-rendering, both static generation (SSG) and server-side rendering (SSR) are supported on a per-page basis
++ Automatic code splitting for faster page loads
++ Client-side routing with optimized prefetching
++ Built-in CSS and Sass support, and support for any CSS-in-JS library
++ Development environment with Fast Refresh support
++ API routes to build API endpoints with Serverless Functions
 
-<div class="link-list">
-  <a class="link-item" href="" target="_blank">
-    <img src={Flow} alt="plugin" />
-    <span>
-      <strong>File system routing with NextJS</strong>
-      ...
-    </span>
-  </a>
+Next.js is used in tens of thousands of production-facing websites and web applications,
+including many of the world's largest brands.
+  </blockquote>
+  <figcaption>Learn more about Next.js at <a href="https://next.js.org/learn/basics/create-Next.js-app" target="_blank" rel="noopener noreferrer">next.js.org</a></figcaption>
+</figure>
 
-  <a class="link-item" href="" target="_blank">
-    <img src={Direction} alt="plugin" />
-    <span>
-      <strong>Handle API requests with NextJS</strong>
-      ...
-    </span>
-  </a>
+Now that you know more about Next.js, have a look at these guides to point you in
+the right direction for further work.
 
-  <a class="link-item" href="" target="_blank">
-    <img src={Comments} alt="colors" />
-    <span>
-      <strong>Adding text localisations with Next-Translate</strong>
-      ...
-    </span>
-  </a>
+<LinkList links={[
+  {
+    href: "https://nextjs.org/docs/routing/introduction",
+    title: "File system routing with Next.js",
+    description: 'Learn the basics of Next.js\'s file-based routing system'
+  },
+  {
+    href: "https://nextjs.org/docs/api-routes/introduction",
+    title: "Handle API requests with Next.js",
+    description: 'Learn how to create a simple API in Next.js'
+  },
+  {
+    href: "https://github.com/vinissimus/next-translate#use-translations-in-your-pages",
+    title: "Adding text localisations with Next-Translate",
+    description: 'Quickly set up translation keys for your page or component'
+  },
+  {
+    href: "https://github.com/garmeeh/next-seo#add-seo-to-page",
+    title: "Adding SEO Metadata with NextSEO",
+    description: 'Quickly add necessary SEO information to a page using next-seo'
+  },
+  {
+    href: "https://next-auth.js.org/getting-started/client#usesession",
+    title: "Handling authentication with Next-Auth",
+    description: 'Check if the user is logged in or not and change the behaviour of a page'
+  },
+  {
+    href: "https://www.youtube.com/watch?v=lgurVvQsOTY",
+    title: "End-To-End (E2E) Testing with Cypress",
+    description: 'Gleb Bahmutov talks about how you can use Cypress.io, a free open-source testing tool, to write end-to-end tests for your React apps.'
+  },
+  {
+    href: "https://github.com/cyrilwanner/next-optimized-images/tree/canary#image-components",
+    title: "Including images with Next-Optimized-Images",
+    description: 'Have your assets automatically optimized using the amazing next-optimized-images plugin'
+  },
+]} />
 
-  <a class="link-item" href="" target="_blank">
-    <img src={Comments} alt="colors" />
-    <span>
-      <strong>Adding SEO Metadata with NextSEO</strong>
-      ...
-    </span>
-  </a>
+## Deploying the site
 
-  <a class="link-item" href="" target="_blank">
-    <img src={Comments} alt="colors" />
-    <span>
-      <strong>Handling authentication with Next-Auth</strong>
-      ...
-    </span>
-  </a>
+Before your code makes it to production, it will have to pass tests.
+We use Prettier, ESLint, StyleLint, and TypeScript to lint our code. The idea
+is that it should look and feel the same no matter which developer worked on it.
 
-  <a class="link-item" href="" target="_blank">
-    <img src={Plugin} alt="plugin" />
-    <span>
-      <strong>Testing integrations with Cypress</strong>
-      ...
-    </span>
-  </a>
+Once you're code is fully linted (most issues are auto-fixed) and committed,
+you will need to ensure that any Unit Tests still work, and that e2e testing
+still passes. This might mean editing the tests yourself, adding new ones, or
+cleaning up old tests that are no-longer relevant.
 
-  <a class="link-item" href="" target="_blank">
-    <img src={Plugin} alt="plugin" />
-    <span>
-      <strong>Handling Native interactions with Expo</strong>
-      ...
-    </span>
-  </a>
+If you've been following a Test-Driven-Develoment (TDD) approach, this work should
+already be done!
 
-
-  <a class="link-item" href="" target="_blank">
-    <img src={Plugin} alt="plugin" />
-    <span>
-      <strong>Including images with Next-Images</strong>
-      ...
-    </span>
-  </a>
-</div>
-
-<div class="subheading">Deploying the site</div>
-
-Before your code makes it to production, ...
-
-<div class="tip-wrapper">
-  <span class="tip">Note</span>The site can only be deployed by senior engineers, and only if <strong>all tests and checks are passing</strong>.
-</div>
+<Tip label="Note">
+  The site can only be deployed by senior engineers, and only if <strong>all tests and checks are passing</strong>.
+</Tip>
 
 ### Start coding
 
@@ -337,7 +243,7 @@ Now that the developer environment is running, you can use the following urls to
 view your code on a local test server.
 
 - [Storybook](http://localhost:6006): `localhost:6006`
-- [NextJS](http://localhost:3000): `localhost:3000`
+- [Next.js](http://localhost:3000): `localhost:3000`
 
 
 ### Commit your changes
@@ -352,10 +258,10 @@ git add .
 git commit -m "feat: boss man gets what he wants"
 ```
 
-<div class="tip-wrapper">
-  <span class="tip">Tip</span>Using a keyword like <code>feat:</code> at the start of your commit message
+<Tip label="Tip">
+  Using a keyword like <code>feat:</code> at the start of your commit message
   is good practice, and makes it easy to identify who did what. If you're wondering what to put, take a look at <a href="https://www.conventionalcommits.org/" target="_blank">Conventional Commits</a> for some solid pointers.
-</div>
+</Tip>
 
 If all is working, the test runners should now kick in to analyse your changes.
 Some fixes will be applied automatically, others will require you to manually make changes.

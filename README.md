@@ -1,4 +1,4 @@
-# TypeScript & NextJS Practice Frontend
+# TypeScript & Next.js Practice Frontend
 
 ## Get started
 
@@ -14,7 +14,7 @@ practices right away and have them work together to reduce bugs, handle
 advanced future cases, and make re-using components and working
 collaboratively a breeze.
 
-We get amazing SEO thanks to NextJS's handling of SSR, secure-by-design
+We get amazing SEO thanks to Next.js's handling of SSR, secure-by-design
 authentication from next-auth, fully typed and tested components and
 pages, the option of multilanguage (and at the least, re-usable text
 strings), self-updating and self-documenting component stories with
