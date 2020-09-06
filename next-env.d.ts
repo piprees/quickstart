@@ -8,6 +8,7 @@
 declare module 'next-optimized-images'
 declare module 'next-translate/I18nProvider'
 declare module 'next-offline'
+declare module '@next/bundle-analyzer'
 
 declare module 'next-translate/useTranslation' {
   export default function useTranslation(): {

@@ -25,6 +25,14 @@
     {
       "source": "/storybook",
       "destination": "/storybook/index.html"
+    },
+    {
+      "source": "/coverage",
+      "destination": "/coverage/index.html"
+    },
+    {
+      "source": "/tests",
+      "destination": "/tests/index.html"
     }
   ]
 }
