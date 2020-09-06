@@ -76,7 +76,10 @@ module.exports = {
     ],
     'i18next/no-literal-string': [
       1,
-      { ignoreAttribute: ['data-test-id', 'testid'], markupOnly: true },
+      {
+        ignoreAttribute: ['data-test-id', 'testid', 'href', 'id'],
+        markupOnly: true,
+      },
     ],
   },
   overrides: [

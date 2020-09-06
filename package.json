@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "scripts": {
     "predev": "yarn install && yarn audit",
-    "dev": "yarn concurrently -n next,storybook,jest,cypress -c green,magenta,cyan,purple --kill-others --restart-tries 0  --handle-input --default-input-target 2 \"yarn next dev\" \"yarn storybook:watch\" \"yarn test:unit:json:watch\" \"yarn test:e2e:watch\"",
+    "dev": "yarn concurrently -n next,storybook,jest,cypress -c green,magenta,cyan,yellow --kill-others --restart-tries 0  --handle-input --default-input-target 2 \"yarn next dev\" \"yarn storybook:watch\" \"yarn test:unit:json:watch\" \"yarn test:e2e:watch\"",
     "prebuild": "yarn storybook",
     "build": "next build",
     "start": "yarn next start",
@@ -124,6 +124,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.4.1",
     "jest-fetch-mock": "^3.0.3",
+    "jest-html-reporters": "^2.0.3",
     "jest-watch-typeahead": "^0.6.0",
     "markdownlint-cli": "^0.23.2",
     "postcss": "^7.0.32",

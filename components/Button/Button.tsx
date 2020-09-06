@@ -77,12 +77,26 @@ export function Button({
   }
 
   if (typeof href === 'string' && href.length > 0) {
+    const languageFixedHref = fixHref(href, lang)
+    if (href.startsWith('/'))
+      return (
+        <Link href={languageFixedHref}>
+          <a {...props} href={languageFixedHref} className={styles}>
+            {label}
+          </a>
+        </Link>
+      )
+
     return (
-      <Link href={fixHref(href, lang)}>
-        <a {...props} className={styles} href={href}>
-          {label}
-        </a>
-      </Link>
+      <a
+        {...props}
+        href={href}
+        target="_blank"
+        rel="noreferrer noopener"
+        className={styles}
+      >
+        {label}
+      </a>
     )
   }
 

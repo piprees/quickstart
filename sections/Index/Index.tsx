@@ -30,17 +30,19 @@ export function Index(): JSX.Element {
 
           <p className={Styles.Description}>
             {t('Index:intro')}
-            <a href="/storybook">{t('Index:link')}</a>
+            <Button
+              data-test-id="IndexStorybookLink"
+              href="https://quickstart.piprees.dev/storybook"
+              label={t('Index:link')}
+            />
           </p>
           <p className={Styles.Description}>
             {t('Index:githubintro')}
-            <a
+            <Button
+              data-test-id="IndexGitHubLink"
               href="https://github.com/piprees/quickstart"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t('Index:githublink')}
-            </a>
+              label={t('Index:githublink')}
+            />
           </p>
 
           <p className={Styles.Description}>

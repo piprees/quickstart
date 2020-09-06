@@ -1,4 +1,18 @@
 module.exports = {
+  collectCoverage: true,
+  coverageReporters: ['json', 'html'],
+  coverageDirectory: '<rootDir>/public/coverage',
+  reporters: [
+    'default',
+    [
+      'jest-html-reporters',
+      {
+        publicPath: './public/tests',
+        filename: 'index.html',
+        expand: true,
+      },
+    ],
+  ],
   roots: ['<rootDir>'],
   setupFilesAfterEnv: ['./util/testSetup.ts'],
   globals: {

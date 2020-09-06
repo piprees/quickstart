@@ -4,7 +4,6 @@ export const LINK_SIGN_IN = '/auth/credentials-signin'
 export const LINK_SIGN_OUT = '/auth/credentials-signout'
 
 export const EXAMPLE_CREDENTIALS_OPTIONS = {
-  id: 'example-credentials',
   name: 'Credentials',
   credentials: {
     username: { label: 'Username', type: 'text', placeholder: 'quickstart' },

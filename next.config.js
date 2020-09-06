@@ -16,7 +16,7 @@ module.exports = withOffline(
     target: 'serverless',
     generateInDevMode: false,
     workboxOpts: {
-      swDest: 'public/service-worker.js',
+      swDest: 'static/service-worker.js',
       skipWaiting: true,
       clientsClaim: true,
       cleanupOutdatedCaches: true,

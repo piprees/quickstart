@@ -12,7 +12,7 @@ export function Header(): JSX.Element {
 
   return (
     <ErrorBoundary>
-      <header className="flex items-center justify-between px-2 py-2 border-b-2 border-gray-600">
+      <header className="fixed flex items-center justify-between w-full px-2 py-2 bg-white shadow">
         <Link href="/">
           <a className="flex items-center justify-start" href="/">
             <Svg src={Logo} className="mr-2" />
