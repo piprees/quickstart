@@ -7,5 +7,5 @@
   "pageDescription": "A brief description for meta info",
   "pageTitle": "Welcome | QuickStart",
   "testButton": "Test Button",
-  "testintro": "Click on the button to activate a test feature"
+  "testintro": "This button doesn't do much, it's just to demonstrate E2E testing."
 }
