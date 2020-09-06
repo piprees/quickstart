@@ -23,7 +23,6 @@
     "test:e2e": "yarn start-server-and-test \"next dev\" http://localhost:3000 \"yarn cypress run\"",
     "test:e2e:watch": "yarn cypress open",
     "commit": "yarn lint",
-    "push": "yarn test",
     "clean": "yarn clean:cache && yarn clean:nextcache && yarn clean:storybook",
     "clean:cache": "rm -rf ./node_modules/.cache || true",
     "clean:nextcache": "rm -rf ./.next || true",
@@ -34,8 +33,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn commit",
-      "pre-push": "yarn push"
+      "pre-commit": "yarn commit"
     }
   },
   "browserslist": "> 0.5% in my stats",

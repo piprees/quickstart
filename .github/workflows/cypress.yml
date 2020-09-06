@@ -1,0 +1,17 @@
+name: cypress
+on: [push]
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v1
+
+      - name: Run Cypress
+        uses: ./
+        with:
+          command: yarn test:e2e
+          working-directory: ./
+
+      - name: Show saved file 🖨
+        run: cat ./results.json
