@@ -45,7 +45,6 @@ export function Index(): JSX.Element {
 
           <p className={Styles.Description}>
             {t('Index:testintro')}
-            <a href="/storybook">{t('Index:link')}</a>
 
             <Button
               data-test-id="IndexButton"

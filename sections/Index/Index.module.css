@@ -24,6 +24,7 @@
 .Description a,
 .Description button {
   display: block;
-  margin-bottom: 1em;
   max-width: max-content;
+  margin: 0 auto;
+  margin-bottom: 1em;
 }
