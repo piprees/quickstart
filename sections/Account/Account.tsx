@@ -2,11 +2,13 @@ import { useSession } from 'next-auth/client'
 import useTranslation from 'next-translate/useTranslation'
 import Head from 'next/head'
 import React from 'react'
+import { Svg } from 'react-optimized-image'
 
 import { Header } from '../../components/Header/Header'
 import { LoginBar } from '../../components/LoginBar/LoginBar'
 import ErrorBoundary from '../../util/ErrorBoundary'
 import { getI18nPaths, getI18nProps, withI18n } from '../../util/i18n'
+import HeaderImage from './assets/undraw_Login.svg'
 
 export function Account(): JSX.Element {
   const { t } = useTranslation()
@@ -29,6 +31,7 @@ export function Account(): JSX.Element {
         className="flex flex-col items-center justify-center min-h-full p-2"
       >
         <main>
+          <Svg src={HeaderImage} />
           <h2>{t('Account:h1')}</h2>
           <p>{t('Account:intro')}</p>
           {hasSession ? (

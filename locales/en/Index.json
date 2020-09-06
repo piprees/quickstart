@@ -1,9 +1,11 @@
 {
+  "githubintro": "Clone this repo or fork it to start your own project",
   "githublink": "View project on GitHub",
   "h1": "QuickStart",
   "intro": "Check out the storybook integration",
   "link": "Components",
   "pageDescription": "A brief description for meta info",
   "pageTitle": "Welcome | QuickStart",
-  "testButton": "Test Button"
+  "testButton": "Test Button",
+  "testintro": "Click on the button to activate a test feature"
 }

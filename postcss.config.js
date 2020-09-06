@@ -3,6 +3,7 @@ const config = {
     'postcss-import': {},
     tailwindcss: {},
     'postcss-flexbugs-fixes': {},
+    'postcss-nested': { preserveEmpty: true },
     'postcss-preset-env': {
       autoprefixer: {
         flexbox: 'no-2009',
