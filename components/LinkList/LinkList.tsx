@@ -4,12 +4,16 @@ import ErrorBoundary from '../../util/ErrorBoundary'
 import Styles from './LinkList.module.css'
 
 export interface LinkListItem {
+  /** The url of the link */
   href: string
+  /** The title of the link */
   title: string
+  /** The text description of the link */
   description: string
 }
 
 export interface LinkListProps {
+  /** The collection of links to display */
   links: LinkListItem[]
 }
 

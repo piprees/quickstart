@@ -4,14 +4,16 @@ jobs:
   start:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Run Cypress
-        uses: ./
+        uses: cypress-io/github-action@v2
         with:
           command: yarn test:e2e
           working-directory: ./
+          browser: chrome
+          headless: true
 
-      - name: Show saved file 🖨
+      - name: Show saved file
         run: cat ./results.json
