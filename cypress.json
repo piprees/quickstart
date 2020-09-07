@@ -8,5 +8,9 @@
   "pluginsFile": "./.cypress/plugins/index.js",
   "supportFile": "./.cypress/support/index.js",
   "screenshotsFolder": "./.cypress/__screenshots__",
-  "videosFolder": "./.cypress/__videos__"
+  "videosFolder": "./.cypress/__videos__",
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "configFile": "./.cypress/reporters.json"
+  }
 }

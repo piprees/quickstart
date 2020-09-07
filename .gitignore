@@ -4,11 +4,17 @@
 /node_modules
 /.pnp
 .pnp.js
+# storybook
+/public/storybook
 
 # testing
 /public/coverage
 /public/tests
+/public/cypress
 /temp
+.cypress/__screenshots__/*
+.cypress/__videos__/*
+.cypress/__reports__/*
 
 # next.js
 /.next/
@@ -17,8 +23,6 @@
 # production
 /build
 
-# storybook
-/public/storybook
 
 # misc
 .DS_Store
@@ -58,6 +62,3 @@ yarn-error.log*
 /.pnp
 .pnp.js
 # @end @expo/next-adapter
-
-.cypress/__screenshots__/*
-.cypress/__videos__/*
