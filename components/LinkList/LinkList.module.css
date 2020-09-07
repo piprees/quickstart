@@ -22,15 +22,15 @@
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
-.LinkItem {
-  display: flex;
-  align-items: flex-start;
-  padding: 20px 30px 20px 15px;
-  color: #333;
-  border: 1px solid #00000010;
-  border-radius: 5px;
-  transition: none;
-}
+  .LinkItem {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 30px 20px 15px;
+    color: #333;
+    border: 1px solid #00000010;
+    border-radius: 5px;
+    transition: none;
+  }
 }
 
 .LinkItem {
@@ -44,7 +44,8 @@
     transform 150ms ease-out;
 }
 
-.LinkItem:hover, .LinkItem:focus {
+.LinkItem:hover,
+.LinkItem:focus {
   border-color: #1ea7fd50;
   box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
   transform: translate3d(0, -3px, 0);
