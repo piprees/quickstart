@@ -33,7 +33,7 @@
     "clean:nextcache": "rm -rf ./.next || true",
     "clean:storybook": "rm -rf ./public/storybook || true",
     "clean:results": "rm -rf ./.cypress/results || true",
-    "prestorybook": "yarn clean:storybook && yarn test:json",
+    "prestorybook": "yarn clean:storybook && yarn test:unit:json",
     "storybook": "yarn build-storybook --loglevel warn --quiet --output-dir ./public/storybook",
     "storybook:watch": "yarn start-storybook -p 6006 -s ./public --loglevel warn --quiet"
   },
