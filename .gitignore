@@ -16,6 +16,8 @@
 .cypress/__screenshots__/*
 .cypress/__videos__/*
 .cypress/__reports__/*
+.storybook/.jest-test-results.json
+.storybook/.cypress-test-results.json
 
 # next.js
 /.next/
