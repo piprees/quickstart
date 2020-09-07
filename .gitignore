@@ -11,6 +11,7 @@
 /public/coverage
 /public/tests
 /public/cypress
+/public/cypress.html
 /temp
 .cypress/__screenshots__/*
 .cypress/__videos__/*
