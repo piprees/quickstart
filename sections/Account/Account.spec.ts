@@ -1,21 +1,32 @@
-import { STYLES_LARGE } from '../../components/Button/constants'
-export const title = 'Integration/sections/Index'
+export const title = 'Integration/sections/Account'
+
+const NOW = new Date()
+NOW.setHours(NOW.getHours() + 1)
+
+const testUserSession = {
+  user: {
+    name: 'Test User',
+    email: 'test@quickstart.piprees.dev',
+    image: '',
+  },
+  accessToken: 'testToken',
+  expires: NOW.toISOString(),
+}
 
 context(title, () => {
-  beforeEach(() => cy.visit('http://localhost:3000/en'))
+  beforeEach(() => cy.visit('/en/account'))
 
-  context(`${title}:Button`, () => {
-    it('Contains the button', () =>
-      cy.get('[data-test-id="IndexButton"]').should('exist'))
+  context(`${title}:Logged Out`, () =>
+    it('Contains the login bar', () =>
+      cy.get('[data-test-id="SignUpButton"]').should('exist'))
+  )
 
-    it('Has large styles', () =>
-      cy.get('[data-test-id="IndexButton"]').should('have.class', STYLES_LARGE))
-
-    it('Alerts when clicked', () => {
-      cy.on('window:alert', (str) =>
-        expect(str).to.equal(`With typescript and Jest`)
-      )
-      cy.get('[data-test-id="IndexButton"]').click()
+  xcontext(`${title}:Logged In`, () => {
+    beforeEach(() => {
+      cy.route2('/api/auth/**', [testUserSession])
     })
+
+    xit('Shows the welcome message', () =>
+      cy.get('[data-test-id="AccountButton"]').should('exist'))
   })
 })

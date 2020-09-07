@@ -4,8 +4,28 @@ const withOptimizedImages = require('next-optimized-images')
 const CACHE_TIME = 24 * 60 * 60
 const NETWORK_TIME = 3
 
+const redirects = [
+  {
+    source: '/storybook',
+    destination: '/storybook/index.html',
+  },
+  {
+    source: '/coverage',
+    destination: '/coverage/index.html',
+  },
+  {
+    source: '/tests',
+    destination: '/tests/index.html',
+  },
+  {
+    source: '/cypress',
+    destination: '/cypress/index.html',
+  },
+]
+
 module.exports = withOffline(
   withOptimizedImages({
+    redirects,
     esModule: true,
     projectRoot: __dirname,
     images: {

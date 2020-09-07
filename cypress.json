@@ -12,5 +12,7 @@
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "configFile": "./.cypress/reporters.json"
-  }
+  },
+  "experimentalFetchPolyfill": true,
+  "experimentalNetworkStubbing": true
 }

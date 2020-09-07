@@ -16,7 +16,7 @@ addDecorator((StoryFn) => (
 addDecorator(
   withTests({
     results: jestResults,
-    filesExt: /((\\.specs?)|(\\.tests?))?(\\.(ts|tsx|js|jsx))?$/
+    filesExt: /((\\.spec?)|(\\.test?))?(\\.(ts|tsx|js|jsx))?$/
   })
 );
 

@@ -1,5 +1,7 @@
 export const title = 'Integration/API/Auth'
 
-describe(title, () => {
+context(title, () => {
+  beforeEach(() => cy.visit('/api/auth/signin'))
+
   it.skip('Should be tested', () => {})
 })

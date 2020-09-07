@@ -34,6 +34,7 @@
   ],
   "include": [
     "./node_modules/cypress",
+    "./.cypress/**/*.js",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
