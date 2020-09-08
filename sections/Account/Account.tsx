@@ -2,7 +2,7 @@ import { useSession } from 'next-auth/client'
 import useTranslation from 'next-translate/useTranslation'
 import Head from 'next/head'
 import React from 'react'
-import { Svg } from 'react-optimized-image'
+import { Img } from 'react-optimized-image'
 
 import { Header } from '../../components/Header/Header'
 import { LoginBar } from '../../components/LoginBar/LoginBar'
@@ -28,12 +28,17 @@ export function Account(): JSX.Element {
       <Header />
       <div
         data-test-id="Account"
-        className="flex flex-col items-center justify-center min-h-full p-2"
+        className="flex flex-col items-center justify-center w-full min-h-full p-2"
       >
-        <main>
-          <Svg src={HeaderImage} />
-          <h2>{t('Account:h1')}</h2>
+        <main className="flex flex-col items-center justify-center flex-1 w-full px-20 py-0">
+          <div className="object-contain w-full">
+            <Img src={HeaderImage} className="w-full h-auto" />
+          </div>
+
+          <h1>{t('Account:h1')}</h1>
+
           <p>{t('Account:intro')}</p>
+
           {hasSession ? (
             <>
               <h3>{t('Account:helloTitle')}</h3>

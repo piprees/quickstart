@@ -1,7 +1,7 @@
 import useTranslation from 'next-translate/useTranslation'
 import Head from 'next/head'
 import React from 'react'
-import { Svg } from 'react-optimized-image'
+import { Img } from 'react-optimized-image'
 
 import { Button } from '../../components/Button/Button'
 import { Header } from '../../components/Header/Header'
@@ -22,11 +22,14 @@ export function Index(): JSX.Element {
       <Header />
       <div
         data-test-id="Index"
-        className="flex flex-col items-center justify-center min-h-full p-2"
+        className="flex flex-col items-center justify-center w-full min-h-full p-2"
       >
-        <main className={Styles.Main}>
-          <Svg src={HeaderImage} />
-          <h2 className={Styles.Title}>{t('Index:h1')}</h2>
+        <main className="flex flex-col items-center justify-center flex-1 w-full px-20 py-0">
+          <div className="object-contain w-full">
+            <Img src={HeaderImage} className="w-full h-auto" />
+          </div>
+
+          <h1 className={Styles.Title}>{t('Index:h1')}</h1>
 
           <p className={Styles.Description}>
             {t('Index:intro')}

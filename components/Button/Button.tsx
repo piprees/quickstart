@@ -1,6 +1,4 @@
-import fixHref from 'next-translate/fixHref'
 import Link from 'next-translate/Link'
-import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 
 import {
@@ -52,7 +50,6 @@ export function Button({
   onClick,
   ...props
 }: ButtonProps): JSX.Element {
-  const { lang } = useTranslation()
   const modeClass = disabled
     ? STYLES_DISABLED
     : primary
@@ -77,11 +74,10 @@ export function Button({
   }
 
   if (typeof href === 'string' && href.length > 0) {
-    const languageFixedHref = fixHref(href, lang)
     if (href.startsWith('/'))
       return (
-        <Link href={languageFixedHref}>
-          <a {...props} href={languageFixedHref} className={styles}>
+        <Link href={href}>
+          <a {...props} href={href} className={styles}>
             {label}
           </a>
         </Link>

@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "scripts": {
     "predev": "yarn install && yarn audit",
-    "start": "yarn concurrently -n next,jest,storybook,cypress -c green,cyan,magenta,yellow --kill-others --restart-tries 0  --handle-input --default-input-target 2 \"vercel dev\" \"yarn test:unit:json:watch\" \"yarn storybook:watch\" \"yarn test:e2e:watch\"",
+    "start": "yarn concurrently -n next,jest,storybook -c green,cyan,magenta --kill-others --restart-tries 0  --handle-input --default-input-target 2 \"vercel dev\" \"yarn test:unit:json:watch\" \"yarn storybook:watch\"",
     "prebuild": "yarn storybook",
     "build": "next build",
     "lint": "yarn lint:css && yarn lint:md && yarn lint:js && yarn lint:types",

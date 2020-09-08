@@ -4,6 +4,9 @@ module.exports = {
     webp: true,
     densities: [1, 2],
   },
+  svg: {
+    webp: false,
+  },
   types: {
     sm: {
       sizes: [240, 480],
