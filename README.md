@@ -1,4 +1,4 @@
-# TypeScript & Next.js Practice Frontend
+# TypeScript & NextJS Practice Frontend
 
 ## Get started
 
@@ -25,3 +25,6 @@ issues, and browser feature support directly from google analytics stats.
 
 I suggest to use a subdomain to deploy this, eventually moving to the main
 .com host once you have reached feature-parity.
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpiprees%2Fquickstart.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpiprees%2Fquickstart?ref=badge_large)
