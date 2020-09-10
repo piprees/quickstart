@@ -2,7 +2,9 @@ import React from 'react'
 
 import { Tip, TipProps } from './Tip'
 
-describe('Tip', () => {
+export const title = 'Unit/Components/Tip'
+
+describe(title, () => {
   const props: TipProps = {
     label: 'Test Tip',
   }

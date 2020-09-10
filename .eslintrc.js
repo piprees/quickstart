@@ -21,6 +21,7 @@ module.exports = {
     'security',
     'react-hooks',
     'i18next',
+    'test-selectors',
     'prettier',
   ],
   extends: [
@@ -31,6 +32,7 @@ module.exports = {
     'plugin:compat/recommended',
     'plugin:security/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:test-selectors/recommended',
     'prettier',
     'prettier/@typescript-eslint',
   ],
@@ -43,13 +45,14 @@ module.exports = {
   rules: {
     'progress/activate': 1,
     'compat/compat': 1,
+    'no-void': 'off',
     'simple-import-sort/sort': 'error',
     'import/order': 'off',
     'prettier/prettier': 'error',
-    'i18next/no-literal-string': ['error', { markupOnly: true }],
     'react/react-in-jsx-scope': 0,
     'react/display-name': 0,
     'react/prop-types': 0,
+    'test-selectors/anchor': 'off',
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/explicit-member-accessibility': 0,
     '@typescript-eslint/indent': 0,
@@ -69,6 +72,13 @@ module.exports = {
       2,
       {
         allow: ['warn', 'error'],
+      },
+    ],
+    'i18next/no-literal-string': [
+      1,
+      {
+        ignoreAttribute: ['data-test-id', 'testid', 'href', 'id'],
+        markupOnly: true,
       },
     ],
   },
@@ -93,6 +103,9 @@ module.exports = {
       },
       extends: ['plugin:jest/recommended', 'plugin:jest/style'],
       plugins: ['jest'],
+      rules: {
+        'jest/no-export': 'off',
+      },
     },
     {
       files: [

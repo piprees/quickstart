@@ -24,23 +24,27 @@
 
 html {
   width: 100%;
+  /* stylelint-reason            Used to fix body height on iOS */
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
   height: -webkit-fill-available;
   margin: 0;
   padding: 0;
+  font-family: system, -apple-system, '.SFNSText-Regular', 'San Francisco',
+    'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-variant-ligatures: common-ligatures;
 }
 
 body {
   width: 100%;
   max-width: 100%;
   min-height: 100vh;
+  /* stylelint-reason            Used to fix body height on iOS */
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
   min-height: -webkit-fill-available;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   font-size: 1rem;
-  font-family: system, -apple-system, '.SFNSText-Regular', 'San Francisco',
-    'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   line-height: 1.618rem;
-  font-variant-ligatures: common-ligatures;
 }

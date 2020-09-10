@@ -1,12 +1,18 @@
 {
   "baseUrl": "http://localhost:3000",
   "chromeWebSecurity": false,
-  "testFiles": ["**/api/**/*.spec.ts", "**/sections/**/*.spec.ts"],
+  "testFiles": ["**/interface/**/*.spec.ts", "**/sections/**/*.spec.ts", "**/components/**/*.spec.ts"],
   "ignoreTestFiles": ["./node_modules/**/*", "./.cypress/**/*", "./.storybook/**/*", "./.next/**/*",  "./.vscode/**/*", "./build/**/*", "./**/*.test.js", "./**/*.test.ts", "./**/*.test.jsx", "./**/*.test.tsx"],
   "integrationFolder": "./",
   "fixturesFolder": "./.cypress/fixtures",
   "pluginsFile": "./.cypress/plugins/index.js",
   "supportFile": "./.cypress/support/index.js",
   "screenshotsFolder": "./.cypress/__screenshots__",
-  "videosFolder": "./.cypress/__videos__"
+  "videosFolder": "./.cypress/__videos__",
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "configFile": "./.cypress/reporters.json"
+  },
+  "experimentalFetchPolyfill": true,
+  "experimentalNetworkStubbing": true
 }

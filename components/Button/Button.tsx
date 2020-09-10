@@ -1,6 +1,15 @@
+import Link from 'next-translate/Link'
 import React from 'react'
 
-import Styles from './Button.module.css'
+import {
+  STYLES_BASE,
+  STYLES_DISABLED,
+  STYLES_LARGE,
+  STYLES_MEDIUM,
+  STYLES_PRIMARY,
+  STYLES_SECONDARY,
+  STYLES_SMALL,
+} from './constants'
 
 export interface ButtonProps {
   /**
@@ -8,9 +17,9 @@ export interface ButtonProps {
    */
   primary?: boolean
   /**
-   * What background color to use
+   * Is this button currently disabled
    */
-  backgroundColor?: string
+  disabled?: boolean
   /**
    * How large should the button be?
    */
@@ -23,33 +32,72 @@ export interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void
+  /**
+   * Optional click handler
+   */
+  href?: string
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Button: React.FC<ButtonProps> = ({
+export function Button({
   primary = false,
-  size = 'Medium',
-  backgroundColor,
+  disabled = false,
+  size = 'medium',
   label,
+  href,
+  onClick,
   ...props
-}) => {
-  const modeClass = primary ? Styles.Primary : Styles.Secondary
+}: ButtonProps): JSX.Element {
+  const modeClass = disabled
+    ? STYLES_DISABLED
+    : primary
+    ? STYLES_PRIMARY
+    : STYLES_SECONDARY
+
   const sizeClass =
     size === 'small'
-      ? Styles.Small
+      ? STYLES_SMALL
       : size === 'large'
-      ? Styles.Large
-      : Styles.Medium
+      ? STYLES_LARGE
+      : STYLES_MEDIUM
+
+  const styles = [STYLES_BASE, sizeClass, modeClass].join(' ')
+
+  if (disabled) {
+    return (
+      <button {...props} type="button" disabled className={styles}>
+        {label}
+      </button>
+    )
+  }
+
+  if (typeof href === 'string' && href.length > 0) {
+    if (href.startsWith('/'))
+      return (
+        <Link href={href}>
+          <a {...props} href={href} className={styles}>
+            {label}
+          </a>
+        </Link>
+      )
+
+    return (
+      <a
+        {...props}
+        href={href}
+        target="_blank"
+        rel="noreferrer noopener"
+        className={styles}
+      >
+        {label}
+      </a>
+    )
+  }
 
   return (
-    <button
-      type="button"
-      className={[Styles.Button, sizeClass, modeClass].join(' ')}
-      style={{ backgroundColor }}
-      {...props}
-    >
+    <button {...props} type="button" className={styles} onClick={onClick}>
       {label}
     </button>
   )

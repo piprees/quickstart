@@ -1,10 +1,8 @@
 # TypeScript & NextJS Practice Frontend
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpiprees%2Fquickstart.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpiprees%2Fquickstart?ref=badge_shield)
-
 
 ## Get started
 
-Clone this repo, then run `yarn dev`
+Clone this repo, then run `yarn start`
 
 ## What is this project
 
@@ -16,7 +14,7 @@ practices right away and have them work together to reduce bugs, handle
 advanced future cases, and make re-using components and working
 collaboratively a breeze.
 
-We get amazing SEO thanks to NextJS's handling of SSR, secure-by-design
+We get amazing SEO thanks to Next.js's handling of SSR, secure-by-design
 authentication from next-auth, fully typed and tested components and
 pages, the option of multilanguage (and at the least, re-usable text
 strings), self-updating and self-documenting component stories with
@@ -27,7 +25,6 @@ issues, and browser feature support directly from google analytics stats.
 
 I suggest to use a subdomain to deploy this, eventually moving to the main
 .com host once you have reached feature-parity.
-
 
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpiprees%2Fquickstart.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpiprees%2Fquickstart?ref=badge_large)

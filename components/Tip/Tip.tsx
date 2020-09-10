@@ -13,7 +13,7 @@ export interface TipProps {
   children?: ReactNode
 }
 
-export const Tip: React.FC<TipProps> = ({ label, children }) => {
+export function Tip({ label, children }: TipProps): JSX.Element {
   return (
     <div className={Styles.TipWrapper}>
       <span className={Styles.Tip}>{label}</span> {children}

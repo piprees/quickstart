@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Unit/Components/LinkList Should match the snapshot 1`] = `
+<LinkList
+  links={
+    Array [
+      Object {
+        "description": "Learn the basics of Next.js's file-based routing system",
+        "href": "https://nextjs.org/docs/routing/introduction",
+        "title": "File system routing with Next.js",
+      },
+    ]
+  }
+/>
+`;
