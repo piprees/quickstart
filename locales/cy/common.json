@@ -1,7 +1,9 @@
 {
+  "ErrorBoundary": "Mae gwall wedi digwydd yn y gydran hon",
+  "ErrorBoundaryIcon": "⚠️",
+  "ErrorBoundaryIconLabel": "Rhybudd",
   "account": "Fy nghyfrif",
   "h1": "QuickStart",
-  "nameTitle": "",
   "signIn": "Mewngofnodi",
   "signOut": "Arwyddo Allan",
   "signUp": "Cofrestrwch"

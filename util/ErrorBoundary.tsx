@@ -1,6 +1,16 @@
+import withTranslation from 'next-translate/withTranslation'
 import React from 'react'
 
-export default class ErrorBoundary extends React.Component {
+interface ErrorBoundaryProps {
+  i18n: { t: (key: string) => string }
+}
+interface ErrorBoundaryState {
+  hasError: boolean
+}
+export class ErrorBoundary extends React.Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
   constructor(props: any) {
     super(props)
     this.state = { hasError: false }
@@ -17,8 +27,19 @@ export default class ErrorBoundary extends React.Component {
   }
 
   render() {
-    // const hasError = this.state.hasError === true
-    // if (hasError) return this.props.children
+    const { t } = this.props.i18n
+    const hasError = this.state.hasError
+    if (hasError)
+      return (
+        <p className="text-red-800 bg-red-200 error">
+          <span role="img" aria-label={t('common:ErrorBoundaryIconLabel')}>
+            {t('common:ErrorBoundaryIcon')}
+          </span>
+          <span>{t('common:ErrorBoundary')}</span>
+        </p>
+      )
     return this.props.children
   }
 }
+
+export default withTranslation(ErrorBoundary)

@@ -1,7 +1,9 @@
 {
+  "ErrorBoundary": "An error has occurred in this component",
+  "ErrorBoundaryIcon": "⚠️",
+  "ErrorBoundaryIconLabel": "Warning",
   "account": "My Account",
   "h1": "QuickStart",
-  "nameTitle": "",
   "signIn": "Sign In",
   "signOut": "Sign Out",
   "signUp": "Sign Up"

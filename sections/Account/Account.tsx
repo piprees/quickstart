@@ -32,7 +32,7 @@ export function Account(): JSX.Element {
       >
         <main className="flex flex-col items-center justify-center flex-1 w-full px-20 py-0">
           <div className="object-contain w-full">
-            <Img src={HeaderImage} className="w-full h-auto" />
+            <Img src={HeaderImage} className="w-full h-auto max-w-md mx-auto" />
           </div>
 
           <h1>{t('Account:h1')}</h1>
